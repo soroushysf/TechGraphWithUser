@@ -18,7 +18,7 @@ app.use('/api', appRoutes);     //http://localhost:3000/api/
 
 
 app.get('*', function (req, res) {
-    res.sendfile(path.join(__dirname + '/public/app/views/index.html'));
+    res.sendfile(path.join(__dirname + '/public/index.html'));
 });
 
 
