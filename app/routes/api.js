@@ -2,7 +2,7 @@
 var User = require('../models/user'),
     jwt = require('jsonwebtoken')
 ;
-var config = require('../config/credentilas')
+var config = require('../config/credentials')
 ;
 
 module.exports = function(router) {
