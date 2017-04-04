@@ -34,7 +34,6 @@ angular.module('mainController', ['authServices'])
                         } else {
 
                         }
-                        console.log(timeCheck);
                     }
                 }, 2000);
             }
@@ -89,7 +88,12 @@ angular.module('mainController', ['authServices'])
 
         main.logout = function () {
             Auth.logout();
+            main.logoutMenu = Auth.isLoggedIn();
             $location.path('/');
 
+        };
+
+        main.isActive = function (viewLocation) {
+            return viewLocation == $location.path();
         }
     });

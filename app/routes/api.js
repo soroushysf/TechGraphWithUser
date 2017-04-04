@@ -40,7 +40,7 @@ module.exports = function(router) {
                 if(!validPassword) {
                     res.json({ success: false, message: "could not validate password"});
                 } else {
-                    var token = jwt.sign({ email: user.email, username: user.username }, config.secret, { expiresIn: '5s'});
+                    var token = jwt.sign({ email: user.email, username: user.username }, config.secret, { expiresIn: '12h'});
                     res.json({ success: true, message: "User authenticated successfully", token: token});
                 }
             }

@@ -1,17 +1,17 @@
-<div ng-controller="regCtrl as register">
+<div class="marginTop50" ng-controller="regCtrl as register">
     <div class="page-header">
         <h1>User Login</h1>
     </div>
 
-    <form ng-submit="main.login(main.loginData)">
+    <form name="loginForm" ng-submit="main.login(main.loginData)">
         <br>
         <label>Email:</label>
-        <input class="form-control" type="email" name="email" ng-model="main.loginData.email">
+        <input class="form-control" type="email" name="email" ng-model="main.loginData.email" required>
         <br>
         <label>Password:</label>
-        <input class="form-control" type="password" name="password" ng-model="main.loginData.password">
+        <input class="form-control" type="password" name="password" ng-model="main.loginData.password" required>
         <br>
-        <button class="btn btn-primary" type="submit">Login</button>
+        <button class="btn btn-primary" ng-disabled="loginForm.$invalid || loginForm.$pristine" type="submit">Login</button>
     </form>
 
     <div class="jumbotron text-center" ng-show="main.loading">

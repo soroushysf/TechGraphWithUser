@@ -9,32 +9,47 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/angular-animate-css/build/nga.all.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
 
     <!-- angular js libraries-->
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
 
-
+    <!-- angular config-->
+    <script type="text/javascript" src="app/config/graphInitialData.js"></script>
 
     <!-- external js libraries-->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/d3.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+
+
 
     <!-- angular application-->
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/routes.js"></script>
 
-    <!-- angular controllers-->
-    <script type="text/javascript" src="app/controllers/mainCtrl.js"></script>
-    <script type="text/javascript" src="app/controllers/userCtrl.js"></script>
-
     <!-- angular services-->
     <script type="text/javascript" src="app/services/userServices.js"></script>
     <script type="text/javascript" src="app/services/authServices.js"></script>
+    <script type="text/javascript" src="app/services/graphServices.js"></script>
+    <script type="text/javascript" src="app/services/d3Links.js"></script>
+    <script type="text/javascript" src="app/services/d3Nodes.js"></script>
 
-    <!-- angular services-->
+    <!-- angular controllers-->
+    <script type="text/javascript" src="app/controllers/mainCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/userCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/graphExploreCtrl.js"></script>
+
+
+
+    <!-- angular directives-->
     <script type="text/javascript" src="app/directives/matchPassword.js"></script>
+    <script type="text/javascript" src="app/directives/drawGraph.js"></script>
+
 
 </head>
 
@@ -50,28 +65,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bootstrap theme</a>
+            <a class="navbar-brand" href="#">Tech Mining Graph</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li ng-hide="main.logoutMenu"><a href="/login">Login</a></li>
-                <li ng-hide="main.logoutMenu"><a href="/register">Register</a></li>
+                <li ng-class="{ active: main.isActive('/')}"><a href="/">Home</a></li>
+                <li ng-class="{ active: main.isActive('/login')}" ng-hide="main.logoutMenu"><a href="/login">Login</a></li>
+                <li ng-class="{ active: main.isActive('/register')}" ng-hide="main.logoutMenu"><a href="/register">Register</a></li>
                 <li ng-show="main.logoutMenu"><a ng-click="main.logout()">Logout</a></li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <li ng-show="main.logoutMenu" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Graph <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="/graphExplore">Graph Explore</a></li>
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li class="dropdown-header">Nav header</li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
                     </ul>
                 </li>
-                <li ng-show="main.logoutMenu"><a href="/profile">Hello {{main.username}}</a></li>
+                <li ng-class="{ active: main.isActive('/profile')}" ng-show="main.logoutMenu"><a href="/profile">Hello {{main.username}}</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

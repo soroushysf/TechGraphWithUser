@@ -25,6 +25,10 @@ var app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: "app/views/pages/users/profile.html",
                 authenticated: true
             })
+            .when('/graphExplore', {
+                templateUrl: "app/views/pages/graph/graphExplore.html",
+                authenticated: true
+            })
             .otherwise({redirectTo: '/'})
     });
 
@@ -37,7 +41,6 @@ var app = angular.module('appRoutes', ['ngRoute'])
 app.run(['$rootScope', 'Auth', '$location', function ($rootScope, Auth, $location) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
-        console.log(Auth.isLoggedIn());
         if(next.$$route.authenticated == true) {
             if(!Auth.isLoggedIn()) {
                 event.preventDefault();

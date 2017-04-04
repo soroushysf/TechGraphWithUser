@@ -1,4 +1,4 @@
-main {
+body {
     padding-top: 30px;
 }
 
@@ -6,7 +6,20 @@ main {
 header .navbar {
     border-radius: 0;
 }
-
+.marginTop50 {
+    margin-top: 50px;
+}
+.marginTop10 {
+    margin-top: 10px;
+}
+.graphWindow {
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 85%;
+}
+.displayWeight {
+    display: none;
+}
 .show-hide-message.ng-hide-remove {
     -webkit-animation: zoomIn 0.3s both ease;
     -moz-animation: zoomIn 0.3s both ease;

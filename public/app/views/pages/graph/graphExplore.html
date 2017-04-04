@@ -1,0 +1,22 @@
+
+<div class="graphView row" ng-controller="graphExploreCtrl as graphExplore">
+    <h1>{{graphExplore.title}}</h1>
+    <div class="graphWindow col-sm-12">
+
+        <graph-view d3-links="links" d3-nodes="nodes"> </graph-view>
+    </div>
+    <div class="col-xs-12 marginTop10">
+        <span class="graphData">Nodes : {{nodeCounts}} </span> |
+        <span class="graphData"> Edges : {{linkCounts}}</span> |
+        <span class="graphData">Current Node Name :  </span>
+        <span id="nodeName" class="graphData"></span>
+
+    </div>
+    <div class="col-sm-12 marginTop10">
+        <span class="graphData">show weights :</span>
+        <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
+            Off
+        </button>
+    </div>
+
+</div>

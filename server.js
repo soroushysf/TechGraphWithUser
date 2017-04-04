@@ -6,7 +6,10 @@ var express = require('express'),
     path = require('path')
 ;
 
-var appRoutes = require('./app/routes/api')(router);
+var
+    appRoutes = require('./app/routes/api')(router),
+    graphRoutes = require('./app/routes/graphData')(router)
+;
 require('./app/config/database');
 var port = process.env.PORT || 3000;
 
@@ -15,6 +18,7 @@ app.use(bodyParser.json()); // for parsing application json
 app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 app.use(express.static(__dirname + '/public'));
 app.use('/api', appRoutes);     //http://localhost:3000/api/
+app.use('/graph', graphRoutes); //http://localhost:3000/graph/
 
 
 app.get('*', function (req, res) {
