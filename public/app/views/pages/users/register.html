@@ -3,20 +3,22 @@
     <h1>User Registration</h1>
 </div>
 
-<form ng-submit="register.regUser(register.regData)">
+<form name="regForm" ng-submit="register.regUser(register.regData)">
     <br>
     <label>Email:</label>
-    <input class="form-control" type="email" name="email" ng-model="register.regData.email">
+    <input class="form-control" type="email" name="email" ng-model="register.regData.email" required>
     <br>
     <label>Username:</label>
-    <input class="form-control" type="text" name="username" ng-model="register.regData.username">
+    <input class="form-control" type="text" name="username" ng-model="register.regData.username" required >
     <br>
     <label>Password:</label>
-    <input class="form-control" type="password" name="password" ng-model="register.regData.password">
+    <input class="form-control" type="password" name="password" ng-model="register.regData.password" required>
+    <label>Password Confirmation:</label>
+    <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.regData.passwordConfirmation" compare-to="register.regData.password" required>
     <br>
-    <button class="btn btn-primary" type="submit">Register</button>
+    <div class="alert-warning" ng-show="regForm.$error.compareTo">passwords dont match</div>
+    <button class="btn btn-primary" type="submit" ng-disabled="regForm.$invalid || regForm.$pristine">Register</button>
 </form>
-
     <div class="jumbotron text-center" ng-show="register.loading">
         <span class="glyphicon glyphicon-repeat spinner"></span>
         <p>loading...</p>
