@@ -7,7 +7,8 @@ angular.module('techGraph',
         'techDirectives',
         'graphController',
         'graphServices',
-        'd3Services'
+        'd3Services',
+        'angularUtils.directives.dirPagination'
     ])
 
     .config(function ($httpProvider) {

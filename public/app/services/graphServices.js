@@ -7,6 +7,7 @@ angular.module('graphServices', [])
 .service('graphData', function ( $http, d3Node, d3Link) {
     var graphDataRequest = this;
     var drawData = {};
+    var ThreshHold = 0.2;
 
     graphDataRequest.httpRequest = function (path, data) {
         return $http.post('/graph'+ path, data)
@@ -25,7 +26,12 @@ angular.module('graphServices', [])
         return drawData.associations;
     };
 
-
+    graphDataRequest.setThreshHold = function (value) {
+        ThreshHold = value;
+    };
+    graphDataRequest.getThreshHold = function () {
+        return ThreshHold;
+    };
     // called from graphExplore controller (graphData => 0: titles, 1: nodes, 2: links)
 
     graphDataRequest.nodeDoubleClick = function (doubleClickData) {
@@ -37,7 +43,6 @@ angular.module('graphServices', [])
 
        return graphDataRequest.httpRequest('/queryGraph', sendingData)
             .then(function (data) {
-                console.log(data);
 
                 var successData = this;
                 successData.fetchedData = data;
@@ -59,18 +64,17 @@ angular.module('graphServices', [])
     };
 
 
-    graphDataRequest.joinPrevAndCurrentData = function (data) {
+    graphDataRequest.resultsConcat = function (data) {
         // $scope.$broadcast("graphTableData", data);
         var crNodes=[], crLinks=[];
 
 
-        console.log(data);
         data["nodeDp"] = data["nodeDp"].concat(data["centerNode"]);
 
 
         crNodes = d3Node.createNodeV2(data["nodeDp"]);
 
-        crLinks = d3Link.filterLinkByTh(d3Link.createLink(data["links"]["result"]), 0.3);
+        crLinks = d3Link.filterLinkByTh(d3Link.createLink(data["links"]["result"]), graphDataRequest.getThreshHold());
 
 
 
@@ -107,28 +111,28 @@ angular.module('graphServices', [])
         // $scope.$broadcast("graphControllerData", completeData);
     }
 
-    graphDataRequest.nodeDoubleClickFinalResult = function (data) {
-        var nodeDblClick = this;
+    graphDataRequest.finalResultsFiltering = function (data) {
+        var finalResults = this;
         $('#weightBtn').removeClass('btn-success').addClass('btn-default');
         $('#weightBtn').html('Off');
 
 
 
-        nodeDblClick.createdLinks = data["crLinks"];
-        nodeDblClick.createdNodes = d3Node.filterNodes(data["crNodes"], data["crLinks"]);
+        finalResults.createdLinks = data["crLinks"];
+        finalResults.createdNodes = d3Node.filterNodes(data["crNodes"], data["crLinks"]);
 
-        nodeDblClick.createdLinks.forEach(function (link) {
-            nodeDblClick.createdNodes.forEach(function (node) {
+        finalResults.createdLinks.forEach(function (link) {
+            finalResults.createdNodes.forEach(function (node) {
                 if (node.id === link.source || node.id === link.target) {
                     node.edgeCount++;
                 }
             })
         });
 
-        nodeDblClick.nodeCounts = nodeDblClick.createdNodes.length;
-        nodeDblClick.linkCounts = nodeDblClick.createdLinks.length;
+        finalResults.nodeCounts = finalResults.createdNodes.length;
+        finalResults.linkCounts = finalResults.createdLinks.length;
 
-        return nodeDblClick;
+        return finalResults;
     }
 });
 

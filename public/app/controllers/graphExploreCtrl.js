@@ -4,41 +4,96 @@
 
 angular.module('graphController', [])
 
-    .controller('graphExploreCtrl', function ($scope, graphData, d3Link, d3Node) {
+    .controller('graphExploreCtrl', function ($scope, graphData, d3Link, d3Node, $timeout) {
         var graphExplore = this;
         graphExplore.links = [], graphExplore.nodes = [];
         graphExplore.title = "Graph View";
         $scope.links = [], $scope.nodes = [];
+        graphExplore.threshHoldSpinner = false;
+        $scope.searchBarSpinner = false;
+
+
+
+
+        // if there are data in service else request server for data
+        if(graphData.getNodes() || graphData.getAssociations()) {
+            var nodes = graphData.getNodes();
+            var links = graphData.getAssociations();
+            $scope.nodeCounts = nodes.length;
+            $scope.linkCounts = links.length;
+            $scope.nodes = nodes;
+            $scope.links = links;
+        } else {
+            graphData.httpRequest('/traverse',firstTraverseData)
+                .then(function (result) {
+                    // graphData.setGraphData(result.techs, result.associations);
+                    graphExplore.nodes = d3Node.createNode(result.techs);
+                    graphExplore.links = d3Link.createLink(result.associations);
+                    graphExplore.links = d3Link.filterLinkByTh(d3Link.filterLinks(graphExplore.links, graphExplore.nodes) ,0.2);
+
+
+                    $scope.nodeCounts = graphExplore.nodes.length;
+                    $scope.linkCounts = graphExplore.links.length;
+                    $scope.nodes = graphExplore.nodes;
+                    $scope.links = graphExplore.links;
+
+                });
+        }
+
+        // get the initial graph data
+
 
         // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
         $scope.$on("nodeDoubleClick",function (event ,data) {
-             graphData.nodeDoubleClick(data)
-                 .then(function (result) {
-                    var finalData = graphData.nodeDoubleClickFinalResult(graphData.joinPrevAndCurrentData(result));
-                         console.log(finalData);
-                     $scope.links = finalData.createdLinks;
-                     $scope.nodes = finalData.createdNodes;
-                     $scope.nodeCounts = finalData.createdNodes.length;
-                     $scope.linkCounts = finalData.createdLinks.length;
-                 })
+            graphData.nodeDoubleClick(data)
+                .then(function (result) {
+                    var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(result));
+                    graphData.setGraphData(finalData.createdNodes, finalData.createdLinks);
+                    $scope.links = finalData.createdLinks;
+                    $scope.nodes = finalData.createdNodes;
+                    $scope.nodeCounts = finalData.createdNodes.length;
+                    $scope.linkCounts = finalData.createdLinks.length;
+                })
 
 
         });
 
-        graphData.httpRequest('/traverse',firstTraverseData)
-            .then(function (result) {
-                // graphData.setGraphData(result.techs, result.associations);
-                graphExplore.nodes = d3Node.createNode(result.techs);
-                graphExplore.links = d3Link.createLink(result.associations);
-                graphExplore.links = d3Link.filterLinkByTh(d3Link.filterLinks(graphExplore.links, graphExplore.nodes) ,0.2);
+        graphExplore.setThreshHold = function (threshHold) {
+            console.log(threshHold);
+            graphExplore.threshHoldSpinner = true;
+            $timeout(function () {
+                graphExplore.threshHoldSpinner = false;
+            }, 500);
+            graphData.setThreshHold(threshHold);
+        };
+
+        $scope.searchBarGetData = function (field) {
+            $scope.searchBarSpinner = true;
+            var sendingData ={
+                    qry :  JSON.stringify(field.queryInput)
+                }
+            ;
+
+            graphData.httpRequest('/queryGraph', sendingData)
+
+                .then(function (data, status, headers, config) {
+                    $scope.searchBarSpinner = false;
+                    var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(data));
+                    graphData.setGraphData(finalData.createdNodes, finalData.createdLinks);
+                    $scope.links = finalData.createdLinks;
+                    $scope.nodes = finalData.createdNodes;
+                    $scope.nodeCounts = finalData.createdNodes.length;
+                    $scope.linkCounts = finalData.createdLinks.length;
+
+                });
 
 
-                $scope.nodeCounts = graphExplore.nodes.length;
-                $scope.linkCounts = graphExplore.links.length;
-                $scope.nodes = graphExplore.nodes;
-                $scope.links = graphExplore.links;
+            $('#weightBtn').removeClass('btn-success').addClass('btn-default');
+            $('#weightBtn').html('Off');
 
-            });
+        };
+
+
 
 
         $scope.weightToggle = function () {

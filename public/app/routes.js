@@ -29,6 +29,18 @@ var app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: "app/views/pages/graph/graphExplore.html",
                 authenticated: true
             })
+            .when('/graphTable', {
+                templateUrl: "app/views/pages/graph/graphTable.html",
+                authenticated: true
+            })
+            .when('/searchTechsFirstPage', {
+                templateUrl: "app/views/pages/graph/searchTechsFirst.html",
+                authenticated: true
+            })
+            .when('/searchTechsSecondPage', {
+                templateUrl: "app/views/pages/graph/searchTechsSecond.html",
+                authenticated: true
+            })
             .otherwise({redirectTo: '/'})
     });
 

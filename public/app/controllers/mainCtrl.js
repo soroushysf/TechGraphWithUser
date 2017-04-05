@@ -96,4 +96,15 @@ angular.module('mainController', ['authServices'])
         main.isActive = function (viewLocation) {
             return viewLocation == $location.path();
         }
+
+
+        //send searched techs to searched techs view controller
+        $scope.$on('searchedGraphData',function (event, data) {
+            //set the trigger when partial(searched techs view controller) has fully changed, so the controller get the event
+            $scope.$on('$viewContentLoaded', function(){
+                $scope.$broadcast("searchedGraphDataFromMainCtrl", data);
+            });
+
+        });
+
     });

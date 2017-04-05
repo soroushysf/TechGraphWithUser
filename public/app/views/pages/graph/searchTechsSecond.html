@@ -1,0 +1,44 @@
+
+
+
+<div class="col-md-12 marginTop10" ng-controller="searchTechViewController">
+    <h1><i class="fa fa-search" aria-hidden="true"></i> Search Technology Graph</h1>
+
+        <div class="graphWindow col-md-12">
+
+            <graph-view d3-links="links" d3-nodes="nodes"> </graph-view>
+
+        </div>
+
+
+        <div class="marginTop10 col-md-12">
+            <span class="graphData">Nodes : {{nodeCounts}} </span> |
+            <span class="graphData"> Edges : {{linkCounts}}</span> |
+            <span class="graphData">Current Node Name :  </span>
+            <span id="nodeName" class="graphData"></span>
+        </div>
+        <div class="marginTop10 col-md-12">
+
+            <span class="graphData">show weights :</span>
+
+            <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
+                Off
+            </button> |
+
+            <label for="searchThreshHold" class="searchThreshHold">Link Thresh hold : </label>
+            <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
+            <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
+                set
+                <span ng-show="threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+            </button>
+
+            <span class="graphData">Searched Technologies :
+            </span>
+            <span ng-repeat="item in searchedTechs">{{item}}, </span>
+            <span class="floatRight">
+                <a class="btn btn-warning btn-lg " href="/searchTechsFirstPage">Back</a>
+            </span>
+        </div>
+
+
+</div>

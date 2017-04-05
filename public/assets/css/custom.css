@@ -12,13 +12,56 @@ header .navbar {
 .marginTop10 {
     margin-top: 10px;
 }
+
 .graphWindow {
     border: solid 1px black;
     border-radius: 5px;
-    width: 85%;
+    width: 100%;
+}
+.custom-search-form {
+    margin-bottom: 10px;
 }
 .displayWeight {
     display: none;
+}
+#searchThreshHold {
+    width: 100px;
+}
+.floatRight {
+    float: right;
+}
+fieldset {
+    border: 5px solid #2C476D;
+    background: #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    color: black;
+}
+
+fieldset legend {
+    background: #2C476D;
+    color: #fff;
+    padding: 15px 20px ;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px #7186A4;
+    margin-left: 20px;
+}
+fieldset span {
+    color: black !important;
+    float: left;
+}
+fieldset #weightBtn {
+    float: left;
+}
+fieldset h2 {
+    color: #496387;
+    margin: 10px auto 40px auto;
+}
+.listStyle {
+    margin-top: 5px;
+    list-style-type: none;
 }
 .show-hide-message.ng-hide-remove {
     -webkit-animation: zoomIn 0.3s both ease;
