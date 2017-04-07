@@ -41,6 +41,8 @@
     <script type="text/javascript" src="app/services/d3Nodes.js"></script>
     <script type="text/javascript" src="app/services/graphTableService.js"></script>
     <script type="text/javascript" src="app/services/searchTechServices.js"></script>
+    <script type="text/javascript" src="app/services/userGraphs.js"></script>
+
 
 
     <!-- angular controllers-->
@@ -87,11 +89,7 @@
                         <li><a href="/graphExplore">Graph Explore</a></li>
                         <li><a href="/graphTable">Graph Table</a></li>
                         <li><a href="/searchTechsFirstPage">Search Techs</a></li>
-                        <!--<li><a href="#">Something else here</a></li>-->
-                        <!--<li role="separator" class="divider"></li>-->
-                        <!--<li class="dropdown-header">Nav header</li>-->
-                        <!--<li><a href="#">Separated link</a></li>-->
-                        <!--<li><a href="#">One more separated link</a></li>-->
+
                     </ul>
                 </li>
                 <li ng-class="{ active: main.isActive('/profile')}" ng-show="main.logoutMenu"><a href="/profile">Hello {{main.username}}</a></li>
@@ -101,16 +99,7 @@
 </nav>
 
 <div class="container theme-showcase" role="main">
-    <div class="row show-hide-message" ng-show="main.successMsg">
-        <div class="alert alert-success">
-            {{main.successMsg}}
-        </div>
-    </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <!--<div class="jumbotron">-->
-        <!--<h1>Theme example</h1>-->
-        <!--<p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>-->
-    <!--</div>-->
+
 
 
 <div ng-view></div>

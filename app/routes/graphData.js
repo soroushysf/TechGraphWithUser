@@ -7,7 +7,8 @@ var request = require('request-promise'),
 var traverse = require('../orientDBRequests/traverse'),
     queryByNodeTitle = require('../orientDBRequests/queryByNodeTitle'),
     queryByNodeId = require('../orientDBRequests/queryByNodeId'),
-    queryByLinks = require('../orientDBRequests/queryByLinks')
+    queryByLinks = require('../orientDBRequests/queryByLinks'),
+    User = require('../models/user')
 ;
 module.exports = function(router) {
 
@@ -121,6 +122,29 @@ module.exports = function(router) {
                 console.log(st);
                 res.send(err);
             })
+    });
+
+    router.post('/saveGraph', function (req, res) {
+        var graph = req.body;
+
+        User.findOne({ email: req.decoded.email}).select('graphs').exec(function(err, user) {
+            if(err) throw err;
+            user.graphs.push(graph);
+
+            if(!user) {
+                res.json({ success: false, message: "user is not authenticated"});
+            } else {
+                user.update({ graphs: user.graphs}, function (err) {
+                    if(err) {
+                        res.json({ data: "was not saved"});
+                    }
+                    res.json({ data: "saved"});
+
+                });
+            }
+
+        });
+
     });
 
     return router;

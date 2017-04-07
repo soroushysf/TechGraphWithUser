@@ -4,7 +4,7 @@
 
 angular.module('mainController', ['authServices'])
 
-    .controller('mainCtrl', function ($rootScope, $scope, Auth, $timeout, $location, $interval, $window) {
+    .controller('mainCtrl', function ($rootScope, $scope, Auth, $timeout, $location, $interval, $window, userGraphs) {
         var main = this;
         main.loadme = false;
 
@@ -49,7 +49,11 @@ angular.module('mainController', ['authServices'])
             if(Auth.isLoggedIn()) {
                 Auth.getUser()
                     .then(function (data) {
-                        main.username = data.data.username;
+                        console.log(data);
+                        main.username = data.data.decoded.username;
+                        console.log(data.data.userGraphs);
+                        userGraphs.setData(data.data.userGraphs);
+                        main.generateUserGraphs();
                         main.loadme = true;
 
                     })
@@ -60,6 +64,9 @@ angular.module('mainController', ['authServices'])
             }
 
         });
+        main.generateUserGraphs = function () {
+            $scope.userGraphsData = userGraphs.getData();
+        };
         main.login = function (loginData) {
             main.loading = true;
             main.errorMsg = false;
@@ -94,7 +101,7 @@ angular.module('mainController', ['authServices'])
         };
 
         main.isActive = function (viewLocation) {
-            return viewLocation == $location.path();
+            return viewLocation === $location.path();
         }
 
 
@@ -106,5 +113,6 @@ angular.module('mainController', ['authServices'])
             });
 
         });
+        $scope.currentPage = 1;
 
     });

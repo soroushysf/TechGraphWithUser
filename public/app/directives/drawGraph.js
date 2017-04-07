@@ -107,7 +107,7 @@ angular.module('techDirectives', [])
                     .data(links)
                     .enter().append("line")
                     .attr("class", "link")
-                    .attr("stroke", "#333")
+                    .attr("stroke", "#111")
 
                     .style("stroke-width", function(d) {
                         return   0.1  ;

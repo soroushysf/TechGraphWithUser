@@ -7,14 +7,14 @@ angular.module('graphController', [])
     .controller('graphExploreCtrl', function ($scope, graphData, d3Link, d3Node, $timeout) {
         var graphExplore = this;
         graphExplore.links = [], graphExplore.nodes = [];
-        graphExplore.title = "Graph View";
+        graphExplore.title = "Graph Explore";
         $scope.links = [], $scope.nodes = [];
         graphExplore.threshHoldSpinner = false;
         $scope.searchBarSpinner = false;
 
 
 
-
+        // get the initial graph data
         // if there are data in service else request server for data
         if(graphData.getNodes() || graphData.getAssociations()) {
             var nodes = graphData.getNodes();
@@ -31,7 +31,7 @@ angular.module('graphController', [])
                     graphExplore.links = d3Link.createLink(result.associations);
                     graphExplore.links = d3Link.filterLinkByTh(d3Link.filterLinks(graphExplore.links, graphExplore.nodes) ,0.2);
 
-
+                    graphData.setGraphData(graphExplore.nodes, graphExplore.links);
                     $scope.nodeCounts = graphExplore.nodes.length;
                     $scope.linkCounts = graphExplore.links.length;
                     $scope.nodes = graphExplore.nodes;
@@ -40,8 +40,21 @@ angular.module('graphController', [])
                 });
         }
 
-        // get the initial graph data
+        graphExplore.saveGraph = function () {
+            var nodes = d3Node.createNodeV2(graphData.getNodes());
+            var links = d3Link.createLinkDoubleCLick(graphData.getAssociations());
+            var sendingData = {
+                nodes: nodes,
+                links: links
+            };
+            graphData.httpRequest('/saveGraph', sendingData)
+                .then(function (result) {
+                    console.log(result);
+                })
 
+
+
+        };
 
         // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
         $scope.$on("nodeDoubleClick",function (event ,data) {
@@ -53,6 +66,9 @@ angular.module('graphController', [])
                     $scope.nodes = finalData.createdNodes;
                     $scope.nodeCounts = finalData.createdNodes.length;
                     $scope.linkCounts = finalData.createdLinks.length;
+                    console.log($scope.nodes);
+                    console.log($scope.links);
+
                 })
 
 

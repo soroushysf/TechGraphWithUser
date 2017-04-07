@@ -38,6 +38,7 @@ module.exports = function(router) {
                     res.json({ success: false, message: "no password provided"});
                 }
                 if(!validPassword) {
+                    console.log(req.body);
                     res.json({ success: false, message: "could not validate password"});
                 } else {
                     var token = jwt.sign({ email: user.email, username: user.username }, config.secret, { expiresIn: '12h'});
@@ -65,7 +66,24 @@ module.exports = function(router) {
 
     });
     router.post('/me', function (req, res) {
-        res.send(req.decoded);
+        User.findOne({ email: req.decoded.email}).select('graphs').exec(function(err, user) {
+            var graphs = {};
+            if(user.graphs) {
+                graphs = user.graphs;
+            } else {
+                graphs = {};
+            }
+            if(err){
+                res.json({message: "error while getting graphs"});
+            } else {
+                var result = {
+                    decoded: req.decoded,
+                    userGraphs: graphs
+                };
+                res.send(result);
+            }
+        });
+
     });
     return router;
 };

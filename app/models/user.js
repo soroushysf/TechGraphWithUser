@@ -4,6 +4,23 @@ var mongoose = require('mongoose'),
     validate = require('mongoose-validator')
 ;
 
+var graphSchema = new Schema({
+    graphTitle: { type: String, default: "title"},
+    nodes: [{
+        cluster: { type: Number },
+        edgeCount: { type: Number },
+        icon: { type: String },
+        id: { type: String},
+        title: { type: String }
+    }],
+    links: [{
+        source: { type: String},
+        target: { type: String},
+        value: { type: Number}
+    }]
+
+});
+
 var emailValidator = [
     validate({
         validator: 'isLength',
@@ -26,9 +43,10 @@ var emailValidator = [
     ]
 ;
 var UserSchema = new Schema({
-    username : { type: String, lowercase: true, required: true, unique: true},
+    username : { type: String, lowercase: true, required: true},
     password : { type: String, required: true, validate: passwordValidator},
     email : { type: String, lowercase: true, required: true, unique: true, validate: emailValidator},
+    graphs: [graphSchema]
 
 });
 

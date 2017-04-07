@@ -2,4 +2,40 @@
 <div class="page-header">
     <h1>{{ main.username}}'s profile</h1>
 </div>
+
+
+
+    <table class="table table-hover" id="dev-table" >
+        <thead class="tableHeader">
+        <tr>
+            <th class="dataCenter" >#
+            </th>
+            <th class="dataCenter" >Collection title
+            </th>
+            <th class="dataCenter">Node Numbers
+            </th>
+            <th class="dataCenter" >Link Numbers
+            </th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="item in userGraphsData |filter :searchTable|itemsPerPage:10" current-page="currentPage"  class="listBackground" ng-class="{'oddBackground' : $even}">
+            <td class="dataCenter" >{{ ($index + 1) + (currentPage - 1) * 10}}</td>
+            <td class="dataCenter">{{item.graphTitle}}</td>
+            <td class="dataCenter">{{item.nodes.length}}</td>
+            <td class="dataCenter">{{item.links.length}}</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+    <div class="col-md-4 col-md-offset-4">
+        <dir-pagination-controls class="tablePageNumber"
+                                 max-size="10"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+    </div>
 </div>

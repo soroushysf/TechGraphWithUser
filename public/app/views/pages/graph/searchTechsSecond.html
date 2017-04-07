@@ -1,10 +1,10 @@
 
 
 
-<div class="col-md-12 marginTop10" ng-controller="searchTechViewController">
+<div class="graphView row marginTop10" ng-controller="searchTechViewController">
     <h1><i class="fa fa-search" aria-hidden="true"></i> Search Technology Graph</h1>
 
-        <div class="graphWindow col-md-12">
+        <div class="graphWindow col-sm-12">
 
             <graph-view d3-links="links" d3-nodes="nodes"> </graph-view>
 
@@ -36,7 +36,7 @@
             </span>
             <span ng-repeat="item in searchedTechs">{{item}}, </span>
             <span class="floatRight">
-                <a class="btn btn-warning btn-lg " href="/searchTechsFirstPage">Back</a>
+                <a class="btn btn-warning btn-lg " href="/searchTechsFirstPage"><spa class="fa fa-arrow-left"></spa> Back</a>
             </span>
         </div>
 
