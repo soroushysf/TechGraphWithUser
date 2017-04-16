@@ -48,14 +48,15 @@ angular.module('techDirectives', [])
                 var color = d3.scaleOrdinal(d3.schemeCategory10),
                     linkText
                 ;
-                /*            var toolTip = d3.select('body').append('div')
-                 .style('position', 'absolute')
-                 .style('padding', '5px 10px')
-                 .style('background', '#303030')
-                 .style('color', 'white')
-                 .style('display', 'none')
-                 .style('border-radius', '5px')
-                 ;*/
+
+                var toolTip = d3.select('body').append('div')
+                    .style('position', 'absolute')
+                    .style('padding', '5px 10px')
+                    .style('background', '#303030')
+                    .style('color', 'white')
+                    .style('display', 'none')
+                    .style('border-radius', '5px')
+                ;
 
                 d3.select(element[0]).append('div')
                     .style('position', 'absolute')
@@ -161,14 +162,18 @@ angular.module('techDirectives', [])
 
 
                 node.on('mouseover', function (d) {
-                    /*                 toolTip.transition()
-                     .style('display', 'block');
+                    console.log(d);
+                    toolTip.transition()
+                        .style('display', 'block');
 
-                     toolTip
-                     .html('<h5 class="nodeToolTip">'+d.title+'</h5>'+'<h6 class="nodeToolTipEdges">Node edges : '+d.edgeCount+'</h6>')
-                     .style('left', (d3.event.pageX +20) + 'px')
-                     .style('top', d3.event.pageY + 10+ 'px');
-                     */
+                    toolTip
+                        .html('<h5 class="nodeToolTip">'+d.title+'</h5>'+
+                            '<h6 class="nodeToolTipEdges">Node edges : '+d.edgeCount+'</h6>'+
+                            '<h6 class="nodeToolTipEdges">Node type : '+ d.icon +'</h6>'+
+                            '<h6 class="nodeToolTipEdges">Node ID : '+ d.id +'</h6>'
+                        )
+                        .style('left', (d3.event.pageX +20) + 'px')
+                        .style('top', d3.event.pageY + 10+ 'px');
                     d3.select("#nodeName").html(d.title);
 
                 });
@@ -182,11 +187,11 @@ angular.module('techDirectives', [])
                 node.on('click', connectedNodes); //Added code
 
 
-                /*        .on("mouseout", function() {
-                 toolTip.transition()
-                 .style('display', 'none');
+                node.on("mouseout", function() {
+                    toolTip.transition()
+                        .style('display', 'none');
 
-                 })*/
+                })
 //Toggle stores whether the highlighting is on
                 var toggle = 0;
 //Create an array logging what is connected to what
@@ -204,17 +209,17 @@ angular.module('techDirectives', [])
                     return linkedByIndex[a.index + "," + b.index];
                 }
                 function connectedNodes() {
-                    if (toggle == 0) {
+                    if (toggle === 0) {
                         //Reduce the opacity of all but the neighbouring nodes
                         var d = d3.select(this).node().__data__;
                         node.style("opacity", function (o) {
                             return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
                         });
                         link.style("opacity", function (o) {
-                            return d.index==o.source.index | d.index==o.target.index ? 1 : 0.1;
+                            return d.index === o.source.index || d.index === o.target.index ? 1 : 0.1;
                         });
                         linkText.style("opacity", function (o) {
-                            return d.index==o.source.index | d.index==o.target.index ? 1 : 0.1;
+                            return d.index === o.source.index | d.index === o.target.index ? 1 : 0.1;
                         })
                         d3.select(this).select("circle")
                             .transition("200")

@@ -8,7 +8,14 @@ angular.module('graphServices', [])
     var graphDataRequest = this;
     var drawData = {};
     var ThreshHold = 0.2;
+    var exploredNode = '';
 
+    graphDataRequest.setExploredNodeName = function (data) {
+        exploredNode = data;
+    };
+    graphDataRequest.getExploredNodeName = function () {
+      return exploredNode;
+    };
     graphDataRequest.httpRequest = function (path, data) {
         return $http.post('/graph'+ path, data)
             .then(function (result) {

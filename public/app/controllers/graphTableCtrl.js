@@ -21,7 +21,6 @@ angular.module('graphController')
             }
         ;
 
-        console.log(sendingData.threshHold);
         graphData.httpRequest('/queryGraph', sendingData)
 
             .then(function (data, status, headers, config) {
@@ -36,7 +35,6 @@ angular.module('graphController')
 
 
     $scope.setThreshHold = function (threshHold) {
-        console.log(threshHold);
         $scope.threshHoldSpinner = true;
         $timeout(function () {
             $scope.threshHoldSpinner = false;

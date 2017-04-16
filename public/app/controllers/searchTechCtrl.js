@@ -30,11 +30,9 @@ angular.module('graphController')
             traverseDepth : typeof $scope.traverseDepth !== 'undefined' ? $scope.traverseDepth * 2 : 1,
             threshHold : $scope.threshHold
         };
-        console.log(sendingData);
         graphData.httpRequest('/nodeNames', sendingData)
             .then(function (result) {
                 var finalData = {};
-                console.log(result);
                 finalData.nodes = d3Node.createNode(result["techs"]);
                 finalData.links = d3Link.createLink(result["associations"]);
                 finalData.links = d3Link.filterLinks(finalData.links, finalData.nodes);

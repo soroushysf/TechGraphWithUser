@@ -42,7 +42,6 @@ angular.module('graphController')
     });
 
     $scope.setThreshHold = function (threshHold) {
-        console.log(threshHold);
         $scope.threshHoldSpinner = true;
         $timeout(function () {
             $scope.threshHoldSpinner = false;

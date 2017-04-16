@@ -66,8 +66,6 @@ angular.module('graphController', [])
                     $scope.nodes = finalData.createdNodes;
                     $scope.nodeCounts = finalData.createdNodes.length;
                     $scope.linkCounts = finalData.createdLinks.length;
-                    console.log($scope.nodes);
-                    console.log($scope.links);
 
                 })
 
@@ -75,7 +73,6 @@ angular.module('graphController', [])
         });
 
         graphExplore.setThreshHold = function (threshHold) {
-            console.log(threshHold);
             graphExplore.threshHoldSpinner = true;
             $timeout(function () {
                 graphExplore.threshHoldSpinner = false;
@@ -84,14 +81,17 @@ angular.module('graphController', [])
         };
 
         $scope.searchBarGetData = function (field) {
+
+            graphData.setExploredNodeName(field.queryInput);
+            $scope.exploredNodeName = graphData.getExploredNodeName();
+
             $scope.searchBarSpinner = true;
             var sendingData ={
                     qry :  JSON.stringify(field.queryInput),
                     threshHold : graphData.getThreshHold()
                 }
             ;
-            // console.log("aaa");
-            // console.log(graphData.getThreshHold());
+
             graphData.httpRequest('/queryGraph', sendingData)
 
                 .then(function (data, status, headers, config) {

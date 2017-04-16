@@ -49,9 +49,7 @@ angular.module('mainController', ['authServices'])
             if(Auth.isLoggedIn()) {
                 Auth.getUser()
                     .then(function (data) {
-                        console.log(data);
                         main.username = data.data.decoded.username;
-                        console.log(data.data.userGraphs);
                         userGraphs.setData(data.data.userGraphs);
                         main.generateUserGraphs();
                         main.loadme = true;
