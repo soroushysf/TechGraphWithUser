@@ -4,8 +4,7 @@
 
 angular.module('graphController')
 
-.controller('graphTableController', function ($scope, graphData, graphTableService) {
-
+.controller('graphTableController', function ($scope, graphData, graphTableService, $timeout) {
 
     $scope.graphTableTitle = 'Graph Table';
 
@@ -16,10 +15,13 @@ angular.module('graphController')
     $scope.searchBarGetData = function (field) {
         $scope.searchBarSpinner = true;
         var sendingData ={
-                qry :  JSON.stringify(field.queryInput)
+                qry :  JSON.stringify(field.queryInput),
+                threshHold : graphData.getThreshHold()
+
             }
         ;
 
+        console.log(sendingData.threshHold);
         graphData.httpRequest('/queryGraph', sendingData)
 
             .then(function (data, status, headers, config) {
@@ -32,6 +34,15 @@ angular.module('graphController')
             });
     };
 
+
+    $scope.setThreshHold = function (threshHold) {
+        console.log(threshHold);
+        $scope.threshHoldSpinner = true;
+        $timeout(function () {
+            $scope.threshHoldSpinner = false;
+        }, 500);
+        graphData.setThreshHold(threshHold);
+    };
 
     $scope.currentPage = 1;
 

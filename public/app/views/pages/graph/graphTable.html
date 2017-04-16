@@ -10,6 +10,11 @@
 
             <div ng-include="'app/views/partials/searchBar.html'"></div>
 
+            <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
+            <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
+                set
+                <span ng-show="threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+            </button>
         </div>
         <div class="panel-body">
             <form class="form-inline">
