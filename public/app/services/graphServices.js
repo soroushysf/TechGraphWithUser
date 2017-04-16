@@ -38,7 +38,9 @@ angular.module('graphServices', [])
 
         var sendingData ={
             qry :  JSON.stringify(doubleClickData[0]),
-            limit : 1
+            limit : 1,
+            threshHold : graphDataRequest.getThreshHold()
+
         };
 
        return graphDataRequest.httpRequest('/queryGraph', sendingData)
@@ -51,7 +53,7 @@ angular.module('graphServices', [])
 
                 doubleClickData[1] = d3Node.createNodeV2(doubleClickData[1]);
 
-                doubleClickData[2] = d3Link.filterLinkByTh(d3Link.createLinkDoubleCLick(doubleClickData[2]), 0.2);
+                doubleClickData[2] = d3Link.createLinkDoubleCLick(doubleClickData[2]);
 
                 //------filtering ended---------//
                 successData.fetchedData["prevNodes"] = doubleClickData[1];
@@ -74,7 +76,7 @@ angular.module('graphServices', [])
 
         crNodes = d3Node.createNodeV2(data["nodeDp"]);
 
-        crLinks = d3Link.filterLinkByTh(d3Link.createLink(data["links"]["result"]), graphDataRequest.getThreshHold());
+        crLinks = d3Link.createLink(data["links"]["result"]);
 
 
 

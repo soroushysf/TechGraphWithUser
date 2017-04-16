@@ -14,7 +14,7 @@ module.exports = function(router) {
 
     router.post('/traverse', function (req, res) {
         var nodeArray = req.body.nodes;
-        traverse.traverseDB(nodeArray, 1, request)
+        traverse.traverseDB(nodeArray, 1, 0.2,request)
             .then(function (result) {
                 result = JSON.parse(result);
                 var graph = {techs : {}, associations : {}};
@@ -47,7 +47,7 @@ module.exports = function(router) {
                 queryByNodeId.getNodesData(dataSend, request)
                     .then(function (nodes) {
 
-                        queryByLinks.getLinksData(dataSend.nodeId, request)
+                        queryByLinks.getLinksData(dataSend.nodeId, queryData.threshHold,request)
                             .then(function (links) {
                                 finalResult = {
                                     nodeDp : nodes,
@@ -82,7 +82,7 @@ module.exports = function(router) {
 
                 for(var i = 0; i < nodeResult.length; i++) {
                     databaseRequests.push(
-                        traverse.traverseDB(nodeResult[i], nodeNames["traverseDepth"],request)
+                        traverse.traverseDB(nodeResult[i], nodeNames["traverseDepth"], nodeNames["threshHold"],request)
                     );
                 }
                 Promise.all(databaseRequests)

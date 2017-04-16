@@ -86,10 +86,12 @@ angular.module('graphController', [])
         $scope.searchBarGetData = function (field) {
             $scope.searchBarSpinner = true;
             var sendingData ={
-                    qry :  JSON.stringify(field.queryInput)
+                    qry :  JSON.stringify(field.queryInput),
+                    threshHold : graphData.getThreshHold()
                 }
             ;
-
+            // console.log("aaa");
+            // console.log(graphData.getThreshHold());
             graphData.httpRequest('/queryGraph', sendingData)
 
                 .then(function (data, status, headers, config) {
