@@ -14,8 +14,9 @@
         <div class="marginTop10 col-md-12">
             <span class="graphData">Nodes : {{nodeCounts}} </span> |
             <span class="graphData"> Edges : {{linkCounts}}</span> |
-            <span class="graphData">Current Node Name :  </span>
-            <span id="nodeName" class="graphData"></span>
+            <span class="graphData"> Minimum Thresh Hold : {{minimumThreshHold}}</span>
+            <!--<span class="graphData">Current Node Name :  </span>-->
+            <!--<span id="nodeName" class="graphData"></span>-->
         </div>
         <div class="marginTop10 col-md-12">
 
@@ -25,7 +26,7 @@
                 Off
             </button> |
 
-            <label for="searchThreshHold" class="searchThreshHold">Link Thresh hold : </label>
+            <label for="searchThreshHold" class="searchThreshHold">Set Link Thresh hold : </label>
             <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
             <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
                 set

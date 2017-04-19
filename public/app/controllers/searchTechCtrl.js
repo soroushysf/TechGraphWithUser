@@ -33,8 +33,8 @@ angular.module('graphController')
         graphData.httpRequest('/nodeNames', sendingData)
             .then(function (result) {
                 var finalData = {};
-                finalData.nodes = d3Node.createNode(result["techs"]);
                 finalData.links = d3Link.createLink(result["associations"]);
+                finalData.nodes = d3Node.filterNodes(d3Node.createNode(result["techs"]), finalData.links);
                 finalData.links = d3Link.filterLinks(finalData.links, finalData.nodes);
 
                 finalData.searchedTechNames = $scope.itemValue;

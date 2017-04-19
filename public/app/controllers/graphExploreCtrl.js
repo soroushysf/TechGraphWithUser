@@ -13,6 +13,7 @@ angular.module('graphController', [])
         $scope.searchBarSpinner = false;
 
 
+        $scope.minimumThreshHold = graphData.getThreshHold();
 
         // get the initial graph data
         // if there are data in service else request server for data
@@ -78,6 +79,7 @@ angular.module('graphController', [])
                 graphExplore.threshHoldSpinner = false;
             }, 500);
             graphData.setThreshHold(threshHold);
+            $scope.minimumThreshHold = graphData.getThreshHold();
         };
 
         $scope.searchBarGetData = function (field) {

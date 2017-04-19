@@ -75,9 +75,10 @@ angular.module('techDirectives', [])
                     .attr("viewBox", "0 -5 10 10")
                     .attr("refX", 120+"px")
                     .attr("refY", 0)
-                    .attr("markerWidth", 85)
-                    .attr("markerHeight", 80)
+                    .attr("markerWidth", 9)
+                    .attr("markerHeight", 9)
                     .attr("orient", "auto")
+                    .attr("markerUnits", "userSpaceOnUse")
                     .append("svg:path")
                     .attr("d", "M0,-5L10,0L0,5");
 
@@ -111,7 +112,7 @@ angular.module('techDirectives', [])
                     .attr("stroke", "#111")
 
                     .style("stroke-width", function(d) {
-                        return   0.1  ;
+                        return   d.value * 3  ;
                     })
                     .attr("marker-end", "url(#end)");
 

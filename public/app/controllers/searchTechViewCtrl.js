@@ -7,7 +7,7 @@ angular.module('graphController')
 .controller('searchTechViewController', function ($scope, graphData, searchTechService, $timeout) {
 
 
-
+    $scope.minimumThreshHold = graphData.getThreshHold();
     if(searchTechService.getNodes() || searchTechService.getAssociations()) {
         var nodes = searchTechService.getNodes();
         var links = searchTechService.getAssociations();
@@ -47,6 +47,7 @@ angular.module('graphController')
             $scope.threshHoldSpinner = false;
         }, 500);
         graphData.setThreshHold(threshHold);
+        $scope.minimumThreshHold = graphData.getThreshHold();
     };
     $scope.weightToggle = function () {
         $('#weightBtn').toggleClass('btn-default').toggleClass('btn-success');

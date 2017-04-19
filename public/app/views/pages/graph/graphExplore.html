@@ -12,7 +12,8 @@
         <label class="graphData"> Edges : {{linkCounts}}</label> |
         <!--<label class="graphData">Current Node Name :  </label>-->
         <!--<label id="nodeName" class="graphData"></label> |-->
-        <label class="graphData">Explored Node Name : {{exploredNodeName}} </label>
+        <label class="graphData">Explored Node Name : {{exploredNodeName}} </label> |
+        <span class="graphData"> Minimum Thresh Hold : {{minimumThreshHold}}</span>
 
 
     </div>
@@ -21,7 +22,7 @@
         <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
             Off
         </button> |
-        <label for="searchThreshHold" class="searchThreshHold">Link Thresh hold : </label>
+        <label for="searchThreshHold" class="searchThreshHold">Set Link Thresh hold : </label>
         <input ng-disabled="graphExplore.threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
         <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="graphExplore.setThreshHold(queryThreshHold)">
             set
