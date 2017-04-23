@@ -6,7 +6,7 @@ angular.module('graphController')
 
 .controller('graphTableController', function ($scope, graphData, graphTableService, $timeout) {
 
-    $scope.graphTableTitle = 'Graph Table';
+    $scope.graphTableTitle = 'اطلاعات لیستی گراف';
 
     if(graphTableService.getNodes()) {
         $scope.nodes = graphTableService.getNodes();

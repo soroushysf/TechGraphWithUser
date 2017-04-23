@@ -9,6 +9,17 @@ body {
 header .navbar {
     border-radius: 0;
 }
+.floatRight{
+    float: right !important;
+}
+.textAlignRight {
+    text-align: right;
+    direction: rtl;
+}
+
+.dropdown-menu {
+    right: 0 !important;
+}
 .marginTop50 {
     margin-top: 50px;
 }

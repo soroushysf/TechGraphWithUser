@@ -1,23 +1,23 @@
 <div class="marginTop50" ng-controller="regCtrl as register">
 <div class="page-header">
-    <h1>User Registration</h1>
+    <h1 class="textAlignRight">ثبت نام</h1>
 </div>
 
 <form name="regForm" ng-submit="register.regUser(register.regData)">
     <br>
-    <label>Email:</label>
+    <label class="floatRight textAlignRight">پست الکترونیکی:</label>
     <input class="form-control" type="email" name="email" ng-model="register.regData.email" required>
     <br>
-    <label>Name:</label>
+    <label class="floatRight textAlignRight">نام:</label>
     <input class="form-control" type="text" name="username" ng-model="register.regData.username" required >
     <br>
-    <label>Password:</label>
+    <label class="floatRight textAlignRight">رمز عبور:</label>
     <input class="form-control" type="password" name="password" ng-model="register.regData.password" required>
-    <label>Password Confirmation:</label>
+    <label class="floatRight textAlignRight">تکرار رمز عبور:</label>
     <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.regData.passwordConfirmation" compare-to="register.regData.password" required>
     <br>
     <div class="alert-warning" ng-show="regForm.$error.compareTo">passwords dont match</div>
-    <button class="btn btn-primary" type="submit" ng-disabled="regForm.$invalid || regForm.$pristine">Register</button>
+    <button class="btn btn-primary floatRight" type="submit" ng-disabled="regForm.$invalid || regForm.$pristine">ثبت نام</button>
 </form>
     <div class="jumbotron text-center" ng-show="register.loading">
         <span class="glyphicon glyphicon-repeat spinner"></span>

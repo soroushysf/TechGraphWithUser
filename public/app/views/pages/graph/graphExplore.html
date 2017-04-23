@@ -1,6 +1,6 @@
 
 <div class="graphView row marginTop10" ng-controller="graphExploreCtrl as graphExplore">
-    <h1><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h1>
+    <h1 class="textAlignRight"><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h1>
     <div ng-include="'app/views/partials/searchBar.html'"></div>
 
     <div class="graphWindow col-sm-12">
@@ -29,7 +29,7 @@
             <span ng-show="graphExplore.threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
         </button>
 
-        <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()">Save Graph</button>
+        <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()">ذخیره گراف</button>
     </div>
 
 </div>

@@ -7,7 +7,7 @@ angular.module('graphController', [])
     .controller('graphExploreCtrl', function ($scope, graphData, d3Link, d3Node, $timeout) {
         var graphExplore = this;
         graphExplore.links = [], graphExplore.nodes = [];
-        graphExplore.title = "Graph Explore";
+        graphExplore.title = "جست و جو در گراف";
         $scope.links = [], $scope.nodes = [];
         graphExplore.threshHoldSpinner = false;
         $scope.searchBarSpinner = false;

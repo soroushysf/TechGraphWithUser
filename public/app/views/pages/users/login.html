@@ -1,17 +1,17 @@
 <div class="marginTop50" ng-controller="regCtrl as register">
     <div class="page-header">
-        <h1>User Login</h1>
+        <h1 class="textAlignRight">ورود</h1>
     </div>
 
     <form name="loginForm" ng-submit="main.login(main.loginData)">
         <br>
-        <label>Email:</label>
+        <label class="floatRight textAlignRight">پست الکترونیکی:</label>
         <input class="form-control" type="email" name="email" ng-model="main.loginData.email" required>
         <br>
-        <label>Password:</label>
+        <label class="floatRight textAlignRight">رمز عبور:</label>
         <input class="form-control" type="password" name="password" ng-model="main.loginData.password" required>
         <br>
-        <button class="btn btn-primary" ng-disabled="loginForm.$invalid || loginForm.$pristine" type="submit">Login</button>
+        <button class="btn btn-primary floatRight" ng-disabled="loginForm.$invalid || loginForm.$pristine" type="submit">ورود</button>
     </form>
 
     <div class="jumbotron text-center" ng-show="main.loading">
