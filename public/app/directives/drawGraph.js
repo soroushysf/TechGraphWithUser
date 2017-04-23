@@ -41,6 +41,9 @@ angular.module('techDirectives', [])
                 var nodes = newValues[1], links = newValues[0]
                 ;
 
+                d3.selectAll(".toolTip")
+                    .style("display", "none")
+                ;
 
                 myChart = myChart.call(d3.zoom().on("zoom", zoomed)).on("dblclick.zoom", null).append("g");
 
@@ -56,6 +59,7 @@ angular.module('techDirectives', [])
                     .style('color', 'white')
                     .style('display', 'none')
                     .style('border-radius', '5px')
+                    .attr("class", "toolTip")
                 ;
 
                 d3.select(element[0]).append('div')
@@ -112,7 +116,7 @@ angular.module('techDirectives', [])
                     .attr("stroke", "#111")
 
                     .style("stroke-width", function(d) {
-                        return   d.value * 3  ;
+                        return   d.value * 3.5  ;
                     })
                     .attr("marker-end", "url(#end)");
 
@@ -175,12 +179,11 @@ angular.module('techDirectives', [])
                         )
                         .style('left', (d3.event.pageX +20) + 'px')
                         .style('top', d3.event.pageY + 10+ 'px');
-                    d3.select("#nodeName").html(d.title);
 
                 });
 
                 node.on('dblclick', function (d) {
-
+                    d3.select("#nodeName").html(d.title);
                     ctrl.sendNodeData(d.title, nodes, links);
                 });
 

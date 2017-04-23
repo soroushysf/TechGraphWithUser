@@ -4,7 +4,7 @@
 
 angular.module('authServices', [])
 
-.service('Auth', function($http, AuthToken) {
+    .service('Auth', function($http, AuthToken) {
     var authService = this;
 
     authService.login = function (loginData) {

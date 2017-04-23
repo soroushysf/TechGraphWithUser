@@ -22,6 +22,7 @@ angular.module('graphController')
     };
 
     $scope.searchGraph = function (view) {
+        graphData.setThreshHold($scope.threshHold);
 
         var sendingData =  {
             nodeNames : $scope.itemValue.map(function (el) {
