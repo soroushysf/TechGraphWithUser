@@ -2,7 +2,7 @@
 
 
 <div class="graphView row marginTop10" ng-controller="searchTechViewController">
-    <h1><i class="fa fa-search" aria-hidden="true"></i> Search Technology Graph</h1>
+    <h1 class="textAlignRight"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h1>
 
         <div class="graphWindow col-sm-12">
 
@@ -11,33 +11,34 @@
         </div>
 
 
-        <div class="marginTop10 col-md-12">
-            <span class="graphData">Nodes : {{nodeCounts}} </span> |
-            <span class="graphData"> Edges : {{linkCounts}}</span> |
-            <span class="graphData"> Minimum Thresh Hold : {{minimumThreshHold}}</span> |
-            <span class="graphData">Expanded Node Name :  </span>
-            <span id="nodeName" class="graphData"></span>
+        <div class="marginTop10 col-md-12 floatRight textAlignRight">
+            <label class="graphData">نودها : {{nodeCounts}} </label> |
+            <label class="graphData"> یال ها : {{linkCounts}}</label> |
+            <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span> |
+            <label class="graphData">تکنولوژی کلیک شده :  </label>
+            <span id="nodeName" class="graphData"></span> |
+            <span class="graphData">تکنولوژی های جست و جو شده :
+            </span>
+            <span ng-repeat="item in searchedTechs">{{item}}, </span>
         </div>
         <div class="marginTop10 col-md-12">
 
-            <span class="graphData">show weights :</span>
+            <label class="graphData">وزن یال ها :</label>
 
             <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
                 Off
             </button> |
 
-            <label for="searchThreshHold" class="searchThreshHold">Set Link Thresh hold : </label>
+            <label for="searchThreshHold" class="searchThreshHold">تغییر کمینه ی وزن یال ها : </label>
             <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
             <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
                 set
                 <span ng-show="threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
             </button>
 
-            <span class="graphData">Searched Technologies :
-            </span>
-            <span ng-repeat="item in searchedTechs">{{item}}, </span>
+
             <span class="floatRight">
-                <a class="btn btn-warning btn-lg " href="/searchTechsFirstPage"><spa class="fa fa-arrow-left"></spa> Back</a>
+                <a class="btn btn-warning btn-lg " href="/searchTechsFirstPage"><spa class="fa fa-arrow-left"></spa> صفحه قبل</a>
             </span>
         </div>
 

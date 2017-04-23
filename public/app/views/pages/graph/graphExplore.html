@@ -7,22 +7,22 @@
 
         <graph-view d3-links="links" d3-nodes="nodes"> </graph-view>
     </div>
-    <div class="col-xs-12 marginTop10">
-        <label class="graphData">Nodes : {{nodeCounts}} </label> |
-        <label class="graphData"> Edges : {{linkCounts}}</label> |
-        <label class="graphData">Expanded Node Name :  </label>
+    <div class="col-xs-12 marginTop10 floatRight textAlignRight">
+        <label class="graphData">نودها : {{nodeCounts}} </label> |
+        <label class="graphData"> یال ها : {{linkCounts}}</label> |
+        <label class="graphData">تکنولوژی کلیک شده :  </label>
         <label id="nodeName" class="graphData"></label> |
-        <label class="graphData">Searched Node Name : {{exploredNodeName}} </label> |
-        <span class="graphData"> Minimum Thresh Hold : {{minimumThreshHold}}</span>
+        <label class="graphData">تکنولوژی جست و جو شده : {{exploredNodeName}} </label> |
+        <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span>
 
 
     </div>
     <div class="col-sm-12 marginTop10">
-        <label class="graphData">show weights :</label>
+        <label class="graphData">وزن یال ها :</label>
         <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
             Off
         </button> |
-        <label for="searchThreshHold" class="searchThreshHold">Set Link Thresh hold : </label>
+        <label for="searchThreshHold" class="searchThreshHold">تغییر کمینه ی وزن یال ها : </label>
         <input ng-disabled="graphExplore.threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
         <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="graphExplore.setThreshHold(queryThreshHold)">
             set
