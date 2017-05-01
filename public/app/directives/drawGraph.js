@@ -141,8 +141,10 @@ angular.module('techDirectives', [])
                 d3.selectAll(".person")
                     .append('text')
                     .attr('font-family', 'FontAwesome')
-                    .text(function() { return '\uf2c0' })
-                    .style('cursor', 'pointer');
+                    .text(function() { return '\uf007' })
+                    .style('cursor', 'pointer')
+                    .style('fill', '#777')
+                    .style('font-size','21px')
 
 
                 d3.selectAll(".tech")
