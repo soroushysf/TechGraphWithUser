@@ -111,6 +111,17 @@ angular.module('mainController', ['authServices'])
             });
 
         });
+        
+        $scope.physicsToggle = function () {
+            $('#physics').toggleClass('btn-default').toggleClass('btn-success');
+
+            if($('#physics').hasClass('btn-success')){
+                $('#physics').html('On');
+            } else {
+                $('#physics').html('Off')
+            }
+            $scope.$broadcast("forceStop");
+        }
         $scope.currentPage = 1;
 
     });

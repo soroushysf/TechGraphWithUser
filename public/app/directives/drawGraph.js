@@ -14,6 +14,9 @@ angular.module('techDirectives', [])
                 $scope.$on("weightToggle", function () {
                     $scope.weightToggleD3();
                 })
+                $scope.$on("forceStop", function () {
+                    $scope.forceStop();
+                })
             },
             restrict : 'E',
             scope : {
@@ -169,7 +172,6 @@ angular.module('techDirectives', [])
 
 
                 node.on('mouseover', function (d) {
-                    console.log(d);
                     toolTip.transition()
                         .style('display', 'block');
 
@@ -198,6 +200,7 @@ angular.module('techDirectives', [])
                         .style('display', 'none');
 
                 })
+
 //Toggle stores whether the highlighting is on
                 var toggle = 0;
 //Create an array logging what is connected to what
@@ -275,6 +278,14 @@ angular.module('techDirectives', [])
                 };
 
 
+                var fixPosition = true;
+                scope.forceStop = function () {
+                    fixPosition = !fixPosition;
+                }
+                scope.getFixPosition = function () {
+                    return fixPosition;
+                }
+
                 function ticked() {
                     link
                         .attr("x1", function (d) {
@@ -333,9 +344,10 @@ angular.module('techDirectives', [])
 
                 function dragended(d) {
                     if (!d3.event.active) simulation.alphaTarget(0);
-                    d.fx = null;
-                    d.fy = null;
-
+                    if(scope.getFixPosition()) {
+                        d.fx = null;
+                        d.fy = null;
+                    }
                 }
                 function zoomed() {
                     myChart.attr("transform", "translate(" + d3.event.transform.x + "," + d3.event.transform.y + ")" + " scale(" + d3.event.transform.k + ")");

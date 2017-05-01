@@ -9,6 +9,7 @@ angular.module('graphServices', [])
     var drawData = {};
     var ThreshHold = 0.2;
     var exploredNode = '';
+    var previousData = {};
 
     graphDataRequest.setExploredNodeName = function (data) {
         exploredNode = data;
@@ -71,8 +72,13 @@ angular.module('graphServices', [])
 
 
     };
-
-
+    graphDataRequest.setPreviousData = function (nodes, links) {
+        previousData.nodes = d3Node.createNodeV2(nodes);
+        previousData.links = d3Link.createLinkDoubleCLick(links);
+    }
+    graphDataRequest.getPreviousData = function () {
+        return previousData;
+    }
     graphDataRequest.resultsConcat = function (data) {
         // $scope.$broadcast("graphTableData", data);
         var crNodes=[], crLinks=[];

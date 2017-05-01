@@ -56,9 +56,15 @@ angular.module('graphController', [])
 
 
         };
-
+        $scope.undoGraph = function () {
+            var data = graphData.getPreviousData();
+            // graphData.setPreviousData($scope.nodes, $scope.links);
+            $scope.nodes = data.nodes;
+            $scope.links = data.links;
+        }
         // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
         $scope.$on("nodeDoubleClick",function (event ,data) {
+            graphData.setPreviousData($scope.nodes, $scope.links);
             graphData.nodeDoubleClick(data)
                 .then(function (result) {
                     var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(result));
@@ -85,6 +91,7 @@ angular.module('graphController', [])
         $scope.searchBarGetData = function (field) {
 
             graphData.setExploredNodeName(field.queryInput);
+            graphData.setPreviousData($scope.nodes, $scope.links);
             $scope.exploredNodeName = graphData.getExploredNodeName();
 
             $scope.searchBarSpinner = true;

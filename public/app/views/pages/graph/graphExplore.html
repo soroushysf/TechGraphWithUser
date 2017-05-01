@@ -22,6 +22,10 @@
         <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
             Off
         </button> |
+        <label class="graphData">فیزیک :</label>
+        <button type="button" id="physics" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="physicsToggle()">
+            On
+        </button> |
         <label for="searchThreshHold" class="searchThreshHold">تغییر کمینه ی وزن یال ها : </label>
         <input ng-disabled="graphExplore.threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
         <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="graphExplore.setThreshHold(queryThreshHold)">
@@ -30,6 +34,8 @@
         </button>
 
         <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()">ذخیره گراف</button>
+        <button class="btn btn-success floatRight" style="margin-right: 10px" ng-click="undoGraph()">بازگشت به گراف قبلی</button>
+
     </div>
 
 </div>
