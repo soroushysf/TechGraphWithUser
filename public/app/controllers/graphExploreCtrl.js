@@ -11,6 +11,7 @@ angular.module('graphController', [])
         $scope.links = [], $scope.nodes = [];
         graphExplore.threshHoldSpinner = false;
         $scope.searchBarSpinner = false;
+        $scope.searchedNodeTitle = '';
 
 
         $scope.minimumThreshHold = graphData.getThreshHold();
@@ -57,10 +58,12 @@ angular.module('graphController', [])
 
         };
         $scope.undoGraph = function () {
-            var data = graphData.getPreviousData();
-            // graphData.setPreviousData($scope.nodes, $scope.links);
-            $scope.nodes = data.nodes;
-            $scope.links = data.links;
+            if(graphData.getPreviousData()) {
+                var data = graphData.getPreviousData();
+                // graphData.setPreviousData($scope.nodes, $scope.links);
+                $scope.nodes = data.nodes;
+                $scope.links = data.links;
+            }
         }
         // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
         $scope.$on("nodeDoubleClick",function (event ,data) {
@@ -69,11 +72,13 @@ angular.module('graphController', [])
                 .then(function (result) {
                     var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(result));
                     graphData.setGraphData(finalData.createdNodes, finalData.createdLinks);
+                    $scope.searchedNodeTitle = data[0];
                     $scope.links = finalData.createdLinks;
                     $scope.nodes = finalData.createdNodes;
                     $scope.nodeCounts = finalData.createdNodes.length;
                     $scope.linkCounts = finalData.createdLinks.length;
-
+                    $('#physics').removeClass('btn-default').addClass('btn-success');
+                    $('#physics').html('On');
                 })
 
 
@@ -91,6 +96,7 @@ angular.module('graphController', [])
         $scope.searchBarGetData = function (field) {
 
             graphData.setExploredNodeName(field.queryInput);
+
             graphData.setPreviousData($scope.nodes, $scope.links);
             $scope.exploredNodeName = graphData.getExploredNodeName();
 
@@ -104,6 +110,7 @@ angular.module('graphController', [])
             graphData.httpRequest('/queryGraph', sendingData)
 
                 .then(function (data, status, headers, config) {
+                    $scope.searchedNodeTitle = field.queryInput;
                     $scope.searchBarSpinner = false;
                     var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(data));
                     graphData.setGraphData(finalData.createdNodes, finalData.createdLinks);
@@ -114,6 +121,9 @@ angular.module('graphController', [])
 
                 });
 
+
+            $('#physics').removeClass('btn-default').addClass('btn-success');
+            $('#physics').html('On');
 
             $('#weightBtn').removeClass('btn-success').addClass('btn-default');
             $('#weightBtn').html('Off');

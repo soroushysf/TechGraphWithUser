@@ -17,11 +17,13 @@ angular.module('techDirectives', [])
                 $scope.$on("forceStop", function () {
                     $scope.forceStop();
                 })
+
             },
             restrict : 'E',
             scope : {
                 d3Nodes : '=',
-                d3Links : '='
+                d3Links : '=',
+                searchedNode : '='
             }
         };
 
@@ -29,7 +31,7 @@ angular.module('techDirectives', [])
         function d3Draw(scope, element, attr, ctrl) {
 
 
-            scope.$watchGroup(['d3Links', 'd3Nodes'], function (newValues) {
+            scope.$watchGroup(['d3Links', 'd3Nodes', 'searchedNode'], function (newValues) {
 
                 d3.select('svg').remove();
                 var height = $(window).height()*0.7,
@@ -41,7 +43,7 @@ angular.module('techDirectives', [])
                     .style("background", "white")
                     .attr('class', 'mainSvg')
                 ;
-                var nodes = newValues[1], links = newValues[0]
+                var nodes = newValues[1], links = newValues[0], searchedNodeTitle = newValues[2]
                 ;
 
                 d3.selectAll(".toolTip")
@@ -147,12 +149,25 @@ angular.module('techDirectives', [])
                     .text(function() { return '\uf007' })
                     .style('cursor', 'pointer')
                     .style('fill', '#777')
-                    .style('font-size','21px')
+                    .style('font-size', function (d) {
+                        if(d.title.localeCompare(searchedNodeTitle) === 0) {
+                            return '34px';
+                        } else {
+
+                            return '21px';
+                        }
+                    })
 
 
                 d3.selectAll(".tech")
                     .append("circle")
-                    .attr("r", 10)
+                    .attr("r", function (d) {
+                        if(d.title.localeCompare(searchedNodeTitle) === 0) {
+                            return 25;
+                        } else {
+                            return 10;
+                        }
+                    })
                     .attr("fill", function (d, i) {
                         if (!(d["cluster"]))
                             return color(i);
@@ -168,6 +183,7 @@ angular.module('techDirectives', [])
                 node.append("text")
                     .attr("dx", 27)
                     .attr("dy", ".25em")
+                    .style("font-size", 21+"px")
                     .text(function(d) { return d.title });
 
 
@@ -201,6 +217,8 @@ angular.module('techDirectives', [])
 
                 })
 
+
+
 //Toggle stores whether the highlighting is on
                 var toggle = 0;
 //Create an array logging what is connected to what
@@ -230,6 +248,10 @@ angular.module('techDirectives', [])
                         linkText.style("opacity", function (o) {
                             return d.index === o.source.index | d.index === o.target.index ? 1 : 0.1;
                         })
+                        d3.selectAll("circle")
+                            .transition("200")
+                            .attr("r", 10)
+                        ;
                         d3.select(this).select("circle")
                             .transition("200")
                             .attr("r", 25)
@@ -249,9 +271,9 @@ angular.module('techDirectives', [])
                             .transition("200")
                             .attr("r", 10)
                         ;
-                        d3.select(this).selectAll("text")
+                        d3.selectAll("text")
                             .transition("200")
-                            .style("font-size", 19+"px")
+                            .style("font-size", 21+"px")
                         ;
                         toggle = 0;
                     }
@@ -276,6 +298,7 @@ angular.module('techDirectives', [])
                 scope.weightToggleD3 = function() {
                     linkText.classed("displayWeight", !linkText.classed("displayWeight"));
                 };
+
 
 
                 var fixPosition = true;

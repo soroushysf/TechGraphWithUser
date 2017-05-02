@@ -6,7 +6,7 @@ angular.module('graphController')
 
 .controller('searchTechViewController', function ($scope, graphData, searchTechService, $timeout) {
 
-
+    $scope.searchedNodeTitle = '';
     $scope.minimumThreshHold = graphData.getThreshHold();
     if(searchTechService.getNodes() || searchTechService.getAssociations()) {
         var nodes = searchTechService.getNodes();
