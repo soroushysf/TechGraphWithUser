@@ -16,8 +16,8 @@ angular.module('graphController')
     };
     $scope.deleteField=function(){
         if( 1 < $scope.inputs.length) {
-            $scope.inputs.splice(0,1);
-            $scope.itemValue.splice( $scope.itemValue.length-1,1);
+            $scope.inputs.splice(-1,1);
+            // $scope.itemValue.splice( -1,1);
         }
     };
 

@@ -2,8 +2,17 @@
 
 
 <div class="graphView row marginTop10" ng-controller="searchTechViewController">
-    <h1 class="textAlignRight"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h1>
+    <h1 class="textAlignRight marginTop50"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h1>
+    <div class="marginTop10 col-md-12 floatRight textAlignRight">
+        <label class="graphData">نودها : {{nodeCounts}} </label> |
+        <label class="graphData"> یال ها : {{linkCounts}}</label> |
+        <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span> |
+        <label class="graphData">تکنولوژی کلیک شده :  {{nodeClickedTitle}}</label> |
+        <span class="graphData">تکنولوژی های جست و جو شده :
+         <span ng-repeat="item in searchedTechs">{{item}}, </span>
+        </span>
 
+    </div>
         <div class="graphWindow col-sm-12">
 
             <graph-view d3-links="links" d3-nodes="nodes"> </graph-view>
@@ -11,34 +20,32 @@
         </div>
 
 
-        <div class="marginTop10 col-md-12 floatRight textAlignRight">
-            <label class="graphData">نودها : {{nodeCounts}} </label> |
-            <label class="graphData"> یال ها : {{linkCounts}}</label> |
-            <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span> |
-            <label class="graphData">تکنولوژی کلیک شده :  </label>
-            <span id="nodeName" class="graphData"></span> |
-            <span class="graphData">تکنولوژی های جست و جو شده :
-            </span>
-            <span ng-repeat="item in searchedTechs">{{item}}, </span>
-        </div>
+
         <div class="marginTop10 col-md-12">
 
-            <label class="graphData">وزن یال ها :</label>
+            <label class="graphData">
+                وزن یال ها :
+                <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
+                    Off
+                </button>
+            </label>
 
-            <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
-                Off
-            </button> |
-            <label class="graphData">فیزیک :</label>
-            <button type="button" id="physics" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="physicsToggle()">
-                On
-            </button> |
+        |
+            <label class="graphData">فیزیک :
+                <button type="button" id="physics" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="physicsToggle()">
+                    On
+                </button>
+            </label>
+          |
 
-            <label for="searchThreshHold" class="searchThreshHold">تغییر کمینه ی وزن یال ها : </label>
-            <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
-            <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
-                set
-                <span ng-show="threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
-            </button>
+            <label for="searchThreshHold" class="searchThreshHold graphData">تغییر کمینه ی وزن یال ها :
+                <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
+                <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
+                    set
+                    <span ng-show="threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+                </button>
+            </label>
+
 
 
             <span class="floatRight">

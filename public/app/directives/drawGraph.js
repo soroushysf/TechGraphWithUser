@@ -50,6 +50,7 @@ angular.module('techDirectives', [])
                     .style("display", "none")
                 ;
 
+
                 myChart = myChart.call(d3.zoom().on("zoom", zoomed)).on("dblclick.zoom", null).append("g");
 
 
@@ -176,7 +177,7 @@ angular.module('techDirectives', [])
                     })
                     .style('cursor', 'pointer');
 
-
+   
 
 
 
@@ -203,7 +204,6 @@ angular.module('techDirectives', [])
                 });
 
                 node.on('dblclick', function (d) {
-                    d3.select("#nodeName").html(d.title);
                     ctrl.sendNodeData(d.title, nodes, links);
                 });
 

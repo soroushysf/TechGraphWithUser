@@ -1,40 +1,46 @@
 
 <div class="graphView row marginTop10" ng-controller="graphExploreCtrl as graphExplore">
-    <h1 class="textAlignRight"><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h1>
+    <h1 class="textAlignRight marginTop50"><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h1>
     <div ng-include="'app/views/partials/searchBar.html'"></div>
-
-    <div class="graphWindow col-sm-12">
-
-        <graph-view d3-links="links" d3-nodes="nodes" searched-node="searchedNodeTitle"> </graph-view>
-    </div>
     <div class="col-xs-12 marginTop10 floatRight textAlignRight">
         <label class="graphData">نودها : {{nodeCounts}} </label> |
         <label class="graphData"> یال ها : {{linkCounts}}</label> |
-        <label class="graphData">تکنولوژی کلیک شده :  </label>
-        <label id="nodeName" class="graphData"></label> |
+        <label class="graphData">تکنولوژی کلیک شده :   {{nodeClickedTitle}}</label>
         <label class="graphData">تکنولوژی جست و جو شده : {{exploredNodeName}} </label> |
         <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span>
 
 
     </div>
-    <div class="col-sm-12 marginTop10">
-        <label class="graphData">وزن یال ها :</label>
-        <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
-            Off
-        </button> |
-        <label class="graphData">فیزیک :</label>
-        <button type="button" id="physics" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="physicsToggle()">
-            On
-        </button> |
-        <label for="searchThreshHold" class="searchThreshHold">تغییر کمینه ی وزن یال ها : </label>
-        <input ng-disabled="graphExplore.threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
-        <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="graphExplore.setThreshHold(queryThreshHold)">
-            set
-            <span ng-show="graphExplore.threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
-        </button>
+    <div class="graphWindow col-sm-12">
 
-        <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()">ذخیره گراف</button>
-        <button class="btn btn-success floatRight" style="margin-right: 10px" ng-click="undoGraph()">بازگشت به گراف قبلی</button>
+        <graph-view d3-links="links" d3-nodes="nodes" searched-node="searchedNodeTitle"> </graph-view>
+    </div>
+
+    <div class="col-sm-12 marginTop10">
+        <label class="graphData">وزن یال ها :
+            <button type="button" id="weightBtn" class="btn btn-default" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="weightToggle()">
+                Off
+            </button>
+        </label>
+        |
+        <label class="graphData">
+            فیزیک :
+            <button type="button" id="physics" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="physicsToggle()">
+                On
+            </button>
+        </label> |
+
+        <label for="searchThreshHold" class="searchThreshHold graphData">تغییر کمینه ی وزن یال ها :
+            <input ng-disabled="graphExplore.threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
+            <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="graphExplore.setThreshHold(queryThreshHold)">
+                set
+                <span ng-show="graphExplore.threshHoldSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+            </button>
+        </label>
+
+
+        <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()"><i class="fa fa-save"></i> ذخیره گراف</button>
+        <button class="btn btn-success floatRight" style="margin-right: 10px" ng-click="undoGraph()"><i class="fa fa-undo"></i> بازگشت به گراف قبلی</button>
 
     </div>
 

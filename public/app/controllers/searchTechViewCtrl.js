@@ -28,6 +28,7 @@ angular.module('graphController')
     });
     // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
     $scope.$on("nodeDoubleClick",function (event ,data) {
+        $scope.nodeClickedTitle = data[0];
         graphData.nodeDoubleClick(data)
             .then(function (result) {
                 var finalData = graphData.finalResultsFiltering(graphData.resultsConcat(result));

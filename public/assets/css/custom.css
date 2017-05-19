@@ -1,8 +1,15 @@
+html, body {
+    font-family: "Iranian Sans" !important;
+}
 .container {
-    width: 95%;
+    width: 100%;
+    padding: 0;
+
 }
 body {
     padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -27,6 +34,28 @@ header .navbar {
 .marginTop10 {
     margin-top: 10px;
 }
+.marginTop30 {
+    margin-top: 30px !important;
+}
+.searchTechFirst {
+    padding: 10px;
+}
+.graphData {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: rgb(252, 213, 49);
+    border: 1px solid #303030;
+}
+.backgroundMenu {
+    background-color: rgb(252, 213, 49) !important;
+    color: black !important;
+}
+.graphView {
+    margin: 0 auto;
+    width: 97%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
 
 .graphWindow {
     border: solid 1px black;
@@ -39,6 +68,9 @@ header .navbar {
 .displayWeight {
     display: none;
 }
+.navbar-nav>li {
+    cursor: pointer;
+}
 #searchThreshHold {
     width: 100px;
 }
@@ -46,7 +78,7 @@ header .navbar {
     float: right;
 }
 fieldset {
-    border: 5px solid #2C476D;
+    border: 2px solid rgba(50, 50, 50, 0.3);
     background: #ddd;
     border-radius: 5px;
     padding: 15px;
@@ -96,7 +128,23 @@ fieldset h2 {
 .nodeToolTipEdges {
 
 }
-
+.dropDownMenu{
+    width: 200px;
+}
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
 @keyframes spin {
 
     from { transform: rotate(0deg); }
