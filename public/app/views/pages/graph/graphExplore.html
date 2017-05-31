@@ -1,13 +1,13 @@
 
 <div class="graphView row marginTop10" ng-controller="graphExploreCtrl as graphExplore">
-    <h1 class="textAlignRight marginTop50"><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h1>
+    <h2 class="textAlignRight marginTop50 pageHeader"><i class="fa fa-share-alt" aria-hidden="true"></i> {{graphExplore.title}}</h2>
     <div ng-include="'app/views/partials/searchBar.html'"></div>
     <div class="col-xs-12 marginTop10 floatRight textAlignRight">
         <label class="graphData">نودها : {{nodeCounts}} </label> |
         <label class="graphData"> یال ها : {{linkCounts}}</label> |
         <label class="graphData">تکنولوژی کلیک شده :   {{nodeClickedTitle}}</label>
         <label class="graphData">تکنولوژی جست و جو شده : {{exploredNodeName}} </label> |
-        <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span>
+        <label class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</label>
 
 
     </div>
@@ -39,8 +39,8 @@
         </label>
 
 
-        <button class="btn btn-success floatRight" ng-click="graphExplore.saveGraph()"><i class="fa fa-save"></i> ذخیره گراف</button>
-        <button class="btn btn-success floatRight" style="margin-right: 10px" ng-click="undoGraph()"><i class="fa fa-undo"></i> بازگشت به گراف قبلی</button>
+        <button class="btn  floatRight btnTools" ng-click="graphExplore.saveGraph()"><i class="fa fa-save"></i> </button>
+        <button class="btn  floatRight btnTools" style="margin-right: 10px" ng-click="undoGraph()"><i class="fa fa-undo"></i></button>
 
     </div>
 

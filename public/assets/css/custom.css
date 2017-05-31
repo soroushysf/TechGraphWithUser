@@ -41,7 +41,7 @@ header .navbar {
     padding: 10px;
 }
 .graphData {
-    padding: 10px 15px;
+    padding: 4px 15px;
     border-radius: 4px;
     background-color: rgb(252, 213, 49);
     border: 1px solid #303030;
@@ -70,6 +70,10 @@ header .navbar {
 }
 .navbar-nav>li {
     cursor: pointer;
+    font-size: 16px;
+}
+.navbar-brand {
+    margin-left: 10px !important;
 }
 #searchThreshHold {
     width: 100px;
@@ -115,8 +119,44 @@ fieldset h2 {
     -moz-animation: zoomIn 0.3s both ease;
     animation: zoomIn 0.3s both ease;
 }
-
-
+.btnTools {
+    background-color: #505050;
+    color: white;
+}
+.btnTools:hover {
+    color: white;
+    background-color: #303030;
+}
+.pageHeader {
+    width:30%;
+    background-color:#666;
+    float:right;
+    padding:10px 15px;
+    margin-top:20px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    color:white;
+}
+.pageHeaderTable {
+    width:30%;
+    background-color:#666;
+    float:right;
+    padding:10px 15px;
+    margin-top:10px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    color:white;
+}
+.pageHeaderSearch {
+    margin-top: 0;
+    width: 35%;
+}
+.pageHeaderTechs {
+    width: 35%;
+}
+.graphTable {
+    margin-top: 80px;
+}
 .spinner {
     -webkit-animation: spin 1s infinite;
     -moz-animation: spin 1s infinite;

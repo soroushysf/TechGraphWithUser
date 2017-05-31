@@ -2,15 +2,15 @@
 
 
 <div class="graphView row marginTop10" ng-controller="searchTechViewController">
-    <h1 class="textAlignRight marginTop50"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h1>
+    <h2 class="textAlignRight  pageHeader pageHeaderTechs"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h2>
     <div class="marginTop10 col-md-12 floatRight textAlignRight">
         <label class="graphData">نودها : {{nodeCounts}} </label> |
         <label class="graphData"> یال ها : {{linkCounts}}</label> |
-        <span class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</span> |
+        <label class="graphData"> حداقل وزن یال : {{minimumThreshHold}}</label> |
         <label class="graphData">تکنولوژی کلیک شده :  {{nodeClickedTitle}}</label> |
-        <span class="graphData">تکنولوژی های جست و جو شده :
+        <label class="graphData">تکنولوژی های جست و جو شده :
          <span ng-repeat="item in searchedTechs">{{item}}, </span>
-        </span>
+        </label>
 
     </div>
         <div class="graphWindow col-sm-12">

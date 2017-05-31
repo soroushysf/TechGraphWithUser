@@ -2,7 +2,9 @@
 
 
 <div class=" col-md-12 marginTop10" ng-controller="graphTableController">
-    <h1 class="textAlignRight"><i class="fa fa-table" aria-hidden="true"></i> {{graphTableTitle}}</h1>
+    <div class="col-xs-12">
+        <h2 class="textAlignRight  pageHeaderTable"><i class="fa fa-table" aria-hidden="true"></i> {{graphTableTitle}}</h2>
+    </div>
     <!--<div class="graphWindow col-md-12">-->
     <div class="panel panel-warning graphTable">
         <div class="panel-heading">
@@ -22,7 +24,8 @@
                     <label >Search</label>
                     <input type="text" ng-model="searchTable" class="form-control" placeholder="Search">
                 </div>
-            </form>            </div>
+            </form>
+        </div>
         <table class="table table-hover" id="dev-table" >
             <thead class="tableHeader">
             <tr>
