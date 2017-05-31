@@ -1,5 +1,9 @@
+@font-face {
+    font-family: 'sans';
+    src: url('../fonts/iran-sans.ttf') format('truetype');
+}
 html, body {
-    font-family: "Iranian Sans" !important;
+    font-family: "sans" !important;
 }
 .container {
     width: 100%;
@@ -41,14 +45,23 @@ header .navbar {
     padding: 10px;
 }
 .graphData {
-    padding: 4px 15px;
+    padding: 6px 15px;
     border-radius: 4px;
     background-color: rgb(252, 213, 49);
-    border: 1px solid #303030;
+    /*border: 1px solid #303030;*/
 }
 .backgroundMenu {
     background-color: rgb(252, 213, 49) !important;
     color: black !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #eee;
+}
+.navbar-inverse .navbar-brand {
+    color : #eee;
+}
+.iconBiggerSize {
+    font-size: 20px !important;
 }
 .graphView {
     margin: 0 auto;
@@ -63,7 +76,11 @@ header .navbar {
     width: 100%;
 }
 .custom-search-form {
+    width: 100%;
     margin-bottom: 10px;
+}
+.searchInput {
+    width: 260px !important;
 }
 .displayWeight {
     display: none;
@@ -120,19 +137,22 @@ fieldset h2 {
     animation: zoomIn 0.3s both ease;
 }
 .btnTools {
-    background-color: #505050;
+    background-color: rgb(255, 150, 0);
     color: white;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 .btnTools:hover {
     color: white;
-    background-color: #303030;
+    background-color: rgb(220, 119, 0);
 }
 .pageHeader {
-    width:30%;
     background-color:#666;
     float:right;
-    padding:10px 15px;
+    padding:10px;
     margin-top:20px;
+    text-align: center;
     border-bottom-left-radius:6px;
     border-bottom-right-radius:6px;
     color:white;
@@ -156,6 +176,15 @@ fieldset h2 {
 }
 .graphTable {
     margin-top: 80px;
+}
+.btn-orange {
+    background-color: rgb(255, 150, 0);
+}
+.btn-orange:hover {
+    background-color: rgb(220, 119, 0);
+}
+.searchBar {
+    margin-left: 10px;
 }
 .spinner {
     -webkit-animation: spin 1s infinite;

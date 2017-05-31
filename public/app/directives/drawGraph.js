@@ -74,8 +74,8 @@ angular.module('techDirectives', [])
                     .style('color', 'black')
                     .style('left', '0')
                     .style('top', '5px')
-                    .html('<p><span>Person : </span><i class="fa fa-user-o" aria-hidden="true"></i></p>' +
-                        '<p><span>Technology : </span><i style="color : black" class="fa fa-circle" aria-hidden="true"></i></p>')
+                    .html('<p><span>Person : </span><i class="fa fa-user" style="color: #777" aria-hidden="true"></i></p>' +
+                        '<p><span>Technology : </span><i style="color : #777" class="fa fa-circle" aria-hidden="true"></i></p>')
                 ;
                 myChart
                     .append("svg:defs").selectAll("marker")

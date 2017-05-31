@@ -3,15 +3,30 @@
 
 <div class=" col-md-12 marginTop10" ng-controller="graphTableController">
     <div class="col-xs-12">
-        <h2 class="textAlignRight  pageHeaderTable"><i class="fa fa-table" aria-hidden="true"></i> {{graphTableTitle}}</h2>
+        <h3 class="textAlignRight  pageHeaderTable"><i class="fa fa-table" aria-hidden="true"></i> {{graphTableTitle}}</h3>
     </div>
     <!--<div class="graphWindow col-md-12">-->
     <div class="panel panel-warning graphTable">
         <div class="panel-heading">
 
 
-            <div ng-include="'app/views/partials/searchBar.html'"></div>
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <form name="searchBarForm">
+                        <div class="input-group custom-search-form">
+                            <input type="text" ng-model="field.queryInput" class="form-control" required>
+                            <span class="input-group-btn">
+              <button class="btn btn-orange" type="submit" ng-disabled="searchBarForm.$invalid" ng-click="searchBarGetData(field)">
+                  جست و جوی گراف
+              <span ng-hide="searchBarSpinner" class="glyphicon glyphicon-search"></span>
+                  <span ng-show="searchBarSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+             </button>
+             </span>
+                        </div><!-- /input-group -->
+                    </form>
 
+                </div>
+            </div>
             <input ng-disabled="threshHoldSpinner" id="searchThreshHold" ng-model="queryThreshHold" class="input-sm form-inline" type="text" placeholder="threshHold" required>
             <button ng-disabled="!queryThreshHold" type="button" class="btn btn-success" data-toggle="button" aria-pressed="true" autocomplete="off" ng-click="setThreshHold(queryThreshHold)">
                 set

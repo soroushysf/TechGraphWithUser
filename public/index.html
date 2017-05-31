@@ -78,9 +78,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav textAlignRight floatRight">
-                <li class="floatRight" ><a ng-class="{ active: main.isActive('/'), backgroundMenu : main.isActive('/')}" href="/"><i class="fa fa-home"></i> خانه </a></li>
+                <li class="floatRight" ><a ng-class="{ active: main.isActive('/'), backgroundMenu : main.isActive('/')}" href="/"><i class="fa iconBiggerSize fa-home"></i> خانه </a></li>
                 <li class="floatRight" ng-show="main.logoutMenu" class="dropdown">
-                    <a ng-class="{ backgroundMenu: main.isActive('/graphExplore') || main.isActive('/graphTable') || main.isActive('/searchTechsFirstPage')}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i> گراف <span class="caret"></span></a>
+                    <a ng-class="{ backgroundMenu: main.isActive('/graphExplore') || main.isActive('/graphTable') || main.isActive('/searchTechsFirstPage')}" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa iconBiggerSize fa-share-alt"></i> گراف <span class="caret"></span></a>
                     <ul class="dropdown-menu dropDownMenu textAlignRight">
                         <li><a href="/graphExplore">جست و جو در گراف</a></li>
                         <li><a href="/graphTable">اطلاعات لیستی گراف</a></li>
@@ -91,7 +91,7 @@
                 <li class="floatRight" ng-class="{ active: main.isActive('/profile'), backgroundMenu : main.isActive('/profile')}" ng-show="main.logoutMenu"><a href="/profile"> {{main.username}}</a></li>
                 <li class="floatRight" ng-class="{ active: main.isActive('/login')}" ng-hide="main.logoutMenu"><a href="/login"><i class="fa fa-sign-in"></i> ورود  </a></li>
                 <li class="floatRight" ng-class="{ active: main.isActive('/register')}" ng-hide="main.logoutMenu"><a href="/register"><i class="fa fa-sign-in"></i> ثبت نام</a></li>
-                <li class="floatRight" ng-show="main.logoutMenu"><a ng-click="main.logout()"><i class="fa fa-sign-out"></i> خروج</a></li>
+                <li class="floatRight" ng-show="main.logoutMenu"><a ng-click="main.logout()"><i class="fa iconBiggerSize fa-sign-out"></i> خروج</a></li>
 
 
             </ul>

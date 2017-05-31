@@ -1,17 +1,15 @@
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <form name="searchBarForm">
-        <div class="input-group custom-search-form">
-                <input type="text" ng-model="field.queryInput" class="form-control" required>
-                <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit" ng-disabled="searchBarForm.$invalid" ng-click="searchBarGetData(field)">
+<form name="searchBarForm">
+    <div class="input-group custom-search-form">
+        <div class="col-sm-9">
+            <input type="text" ng-model="field.queryInput" class="form-control searchInput" required>
+        </div>
+        <span class="input-group-btn col-sm-3">
+              <button class="btn btn-orange" type="submit" ng-disabled="searchBarForm.$invalid" ng-click="searchBarGetData(field)">
                   جست و جو
               <span ng-hide="searchBarSpinner" class="glyphicon glyphicon-search"></span>
                   <span ng-show="searchBarSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
              </button>
-             </span>
-        </div><!-- /input-group -->
-        </form>
+        </span>
+    </div><!-- /input-group -->
+</form>
 
-    </div>
-</div>
