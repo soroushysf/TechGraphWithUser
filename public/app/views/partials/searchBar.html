@@ -1,15 +1,16 @@
 <form name="searchBarForm">
-    <div class="input-group custom-search-form">
-        <div class="col-sm-9">
+    <div class="input-group custom-search-form ">
+        <div class="input-group-btn buttonSearchSection ">
+            <button class="btn btn-orange btnSearchBorder" type="submit" ng-disabled="searchBarForm.$invalid" ng-click="searchBarGetData(field)">
+                جست و جو
+                <span ng-hide="searchBarSpinner" class="glyphicon glyphicon-search"></span>
+                <span ng-show="searchBarSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="inputSearchSection">
             <input type="text" ng-model="field.queryInput" class="form-control searchInput" required>
         </div>
-        <span class="input-group-btn col-sm-3">
-              <button class="btn btn-orange" type="submit" ng-disabled="searchBarForm.$invalid" ng-click="searchBarGetData(field)">
-                  جست و جو
-              <span ng-hide="searchBarSpinner" class="glyphicon glyphicon-search"></span>
-                  <span ng-show="searchBarSpinner"  class="fa fa-spinner fa-spin" aria-hidden="true"></span>
-             </button>
-        </span>
+
     </div><!-- /input-group -->
 </form>
 

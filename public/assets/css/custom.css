@@ -79,8 +79,19 @@ header .navbar {
     width: 100%;
     margin-bottom: 10px;
 }
+.inputSearchSection {
+    width: 200px;
+}
+.buttonSearchSection {
+    width: 100px;
+}
+.btnSearchBorder {
+    border-radius: 0 4px 4px 0 !important;
+
+}
 .searchInput {
-    width: 260px !important;
+    width: 100%;
+    direction: ltr;
 }
 .displayWeight {
     display: none;
