@@ -946,7 +946,7 @@
       <workItem from="1496236826087" duration="49000" />
       <workItem from="1499423616145" duration="2724000" />
       <workItem from="1499427187184" duration="1160000" />
-      <workItem from="1499838522976" duration="473000" />
+      <workItem from="1499838522976" duration="492000" />
     </task>
     <task id="LOCAL-00001" summary="login, register, graph explore update">
       <created>1499427565647</created>
@@ -962,11 +962,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499842925426</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="git ignore update">
+      <created>1499843184268</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1499843184268</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163100000" />
+    <option name="totallyTimeSpent" value="163119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1041,7 +1048,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login, register, graph explore update" />
     <MESSAGE value="credentials deleted," />
-    <option name="LAST_COMMIT_MESSAGE" value="credentials deleted," />
+    <MESSAGE value="git ignore update" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignore update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
