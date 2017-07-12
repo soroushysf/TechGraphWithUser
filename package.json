@@ -11,13 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "bluebird": "^3.5.0",
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "jsonwebtoken": "^7.3.0",
-    "mongoose": "^4.9.2",
-    "mongoose-validator": "^1.2.5",
-    "morgan": "^1.8.1",
-    "request-promise": "^4.2.0"
+    "bluebird": "3.5.0",
+    "body-parser": "1.17.1",
+    "express": "4.15.2",
+    "jsonwebtoken": "7.3.0",
+    "mongoose": "4.9.2",
+    "mongoose-validator": "1.2.5",
+    "morgan": "1.8.1",
+    "request-promise": "4.2.0"
   }
 }
