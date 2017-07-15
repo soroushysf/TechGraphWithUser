@@ -8,7 +8,10 @@
             </button>
         </div>
         <div class="inputSearchSection">
-            <input type="text" ng-model="field.queryInput" class="form-control searchInput" required>
+            <input type="text" ng-keyup="graphExplore.getNodeNamesKeyDown(field.queryInput)" ng-model="field.queryInput" class="form-control searchInput" required>
+            <ul ng-if="nodeNamesSearched.length !== 0" class="searchDropDown">
+            <li   ng-repeat="node in nodeNamesSearched">{{node.tech_title}}</li>
+            </ul>
         </div>
 
     </div><!-- /input-group -->

@@ -119,18 +119,12 @@ angular.module('techDirectives', [])
                     .data(links)
                     .enter().append("line")
                     .attr("class", "link")
-                    .attr("stroke", "#111")
-
+                    .attr("stroke", "#666")
                     .style("stroke-width", function(d) {
                         return   d.value * 3.5  ;
                     })
                     .attr("marker-end", "url(#end)")
-
                 ;
-
-
-
-
                 var node = myChart.selectAll("g")
                     .data(nodes)
                     .enter().append("g")
@@ -291,7 +285,7 @@ angular.module('techDirectives', [])
                     .attr("class", "weight")
                     .classed("displayWeight", true)
                     .attr("font-family", "Arial, Helvetica, sans-serif")
-                    .attr("fill", "Black")
+                    .attr("fill", "#333")
                     .style("font", "normal 14px Arial")
                     .attr("dy", ".35em")
                     .text(function (d) {
@@ -301,16 +295,13 @@ angular.module('techDirectives', [])
                 scope.weightToggleD3 = function() {
                     linkText.classed("displayWeight", !linkText.classed("displayWeight"));
                 };
-
-
-
                 var fixPosition = true;
                 scope.forceStop = function () {
                     fixPosition = !fixPosition;
-                }
+                };
                 scope.getFixPosition = function () {
                     return fixPosition;
-                }
+                };
 
                 function ticked() {
                     link

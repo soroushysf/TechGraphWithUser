@@ -7,11 +7,22 @@ var request = require('request-promise'),
 var traverse = require('../orientDBRequests/traverse'),
     queryByNodeTitle = require('../orientDBRequests/queryByNodeTitle'),
     queryByNodeId = require('../orientDBRequests/queryByNodeId'),
+    queryNodesTitles = require('../orientDBRequests/queryNodeTitles'),
     queryByLinks = require('../orientDBRequests/queryByLinks'),
     User = require('../models/user')
 ;
 module.exports = function(router) {
-
+    router.post('/node-names', function (req, res) {
+        queryNodesTitles.getNodesTitles(req.body.input, request)
+            .then(function (result) {
+                var rs = JSON.parse(result);
+                res.json({ data: rs});
+            })
+            .catch(function (err, st) {
+                console.log(st);
+                res.send(err);
+            })
+    });
     router.post('/traverse', function (req, res) {
         var nodeArray = req.body.nodes;
         traverse.traverseDB(nodeArray, 1, 0.2,request)

@@ -41,7 +41,18 @@ angular.module('graphController', [])
 
                 });
         }
-
+        $scope.nodeNamesSearched= [];
+        graphExplore.getNodeNamesKeyDown = function (inputString) {
+            graphData.getNodeNames(inputString)
+                .then(function (data) {
+                    $scope.nodeNamesSearched = data.data.data.result;
+                    console.log(data.data.data.result);
+                })
+                .catch(function (data) {
+                    console.log(data)
+                });
+            console.log(inputString);
+        };
         graphExplore.saveGraph = function () {
             var nodes = d3Node.createNodeV2(graphData.getNodes());
             var links = d3Link.createLinkDoubleCLick(graphData.getAssociations());

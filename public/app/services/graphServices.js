@@ -23,6 +23,12 @@ angular.module('graphServices', [])
                 return result.data.data;
             })
     };
+    graphDataRequest.getNodeNames = function (inputString) {
+        var bodyJson = {
+            input : inputString
+        }
+      return $http.post('/graph/node-names', bodyJson);
+    };
     graphDataRequest.setGraphData = function (nodes,associations) {
         drawData.nodes = nodes;
         drawData.associations = associations;

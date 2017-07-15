@@ -80,7 +80,7 @@ header .navbar {
     margin-bottom: 10px;
 }
 .inputSearchSection {
-    width: 200px;
+    width: 100%;
 }
 .buttonSearchSection {
     width: 100px;
@@ -88,6 +88,22 @@ header .navbar {
 .btnSearchBorder {
     border-radius: 0 4px 4px 0 !important;
 
+}
+.searchDropDown {
+    background-color: #eee;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    list-style: none;
+    position: absolute;
+    z-index: 10000;
+    padding: 5px;
+    top:35px;
+    width: 50%;
+    left: 0;
+}
+.searchDropDown li {
+    direction: ltr;
+    text-align: left;
 }
 .searchInput {
     width: 100%;
