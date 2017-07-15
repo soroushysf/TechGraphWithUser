@@ -5,17 +5,18 @@
     </div>
 
     <form name="searchTechsForm">
-    <fieldset class="searchTech">
+    <fieldset class="searchTech col-xs-10 col-xs-offset-1">
         <h2>نام های تکنولوژی
-            <div class="col-md-12" >
-                <button class="btn btn-success " ng-click="addField()">+</button>
-                <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
-            </div>
+
         </h2>
         <hr>
         <div class="input-list style-1 col-xs-12 col-md-12">
 
-
+            <div class="col-md-12" >
+                اضافه یا کم کردن تکنولوژی
+                <button class="btn btn-success " ng-click="addField()">+</button>
+                <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
+            </div>
                 <li class="col-xs-6 listStyle floatRight marginTop30"  ng-repeat="item in inputs">
                     <label class="labelInline floatRight textAlignRight" for="1">نام تکنولوژی:</label>
                     <input id="1" type="text" ng-model="itemValue[$index]" required>

@@ -75,6 +75,9 @@ header .navbar {
     border-radius: 5px;
     width: 100%;
 }
+.searchTech h2{
+    color: #222;
+}
 .custom-search-form {
     width: 100%;
     margin-bottom: 10px;

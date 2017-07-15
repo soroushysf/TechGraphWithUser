@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3fa59e6-cebc-4e71-90f9-589810943f7f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/orientDBRequests/queryNodeTitles.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/graphData.js" afterPath="$PROJECT_DIR$/app/routes/graphData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/graphExploreCtrl.js" afterPath="$PROJECT_DIR$/public/app/controllers/graphExploreCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/directives/drawGraph.js" afterPath="$PROJECT_DIR$/public/app/directives/drawGraph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/services/graphServices.js" afterPath="$PROJECT_DIR$/public/app/services/graphServices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/partials/searchBar.html" afterPath="$PROJECT_DIR$/public/app/views/partials/searchBar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html" afterPath="$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/custom.css" afterPath="$PROJECT_DIR$/public/assets/css/custom.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/custom.css">
+      <file leaf-file-name="searchTechsFirst.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+            <state relative-caret-position="45">
+              <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -61,23 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="queryNodeTitles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/orientDBRequests/queryNodeTitles.js">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc;n#getNodesTitles#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphData.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/graphData.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="157">
+              <caret line="76" column="1" lean-forward="false" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -106,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>queryByNodeTitle.getNodesData</find>
       <find>queryByLinks.getLinksData</find>
       <find>queryByLinks.getLinksDat</find>
       <find>sendNodeData</find>
@@ -136,6 +118,7 @@
       <find>navbar</find>
       <find>fa</find>
       <find>btnTools</find>
+      <find>searchTech</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,7 +161,6 @@
         <option value="$PROJECT_DIR$/public/app/app.js" />
         <option value="$PROJECT_DIR$/public/app/controllers/searchTechViewCtrl.js" />
         <option value="$PROJECT_DIR$/public/app/controllers/searchTechCtrl.js" />
-        <option value="$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html" />
         <option value="$PROJECT_DIR$/public/app/views/pages/graph/searchTechsSecond.html" />
         <option value="$PROJECT_DIR$/public/app/views/pages/graph/graphTable.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -199,6 +181,7 @@
         <option value="$PROJECT_DIR$/public/app/views/partials/searchBar.html" />
         <option value="$PROJECT_DIR$/public/app/controllers/graphExploreCtrl.js" />
         <option value="$PROJECT_DIR$/public/assets/css/custom.css" />
+        <option value="$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html" />
       </list>
     </option>
   </component>
@@ -374,6 +357,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tech Mining Graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tech Mining Graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graph" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1116,7 +1129,7 @@
       <workItem from="1499423616145" duration="2724000" />
       <workItem from="1499427187184" duration="1160000" />
       <workItem from="1499838522976" duration="1237000" />
-      <workItem from="1500118469255" duration="7140000" />
+      <workItem from="1500118469255" duration="8693000" />
     </task>
     <task id="LOCAL-00001" summary="login, register, graph explore update">
       <created>1499427565647</created>
@@ -1174,11 +1187,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500120155436</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="suggest node names when want to search">
+      <created>1500128323947</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1500128323947</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171004000" />
+    <option name="totallyTimeSpent" value="172557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-128" width="1440" height="900" extended-state="0" />
@@ -1256,7 +1276,8 @@
     <MESSAGE value="git ignore update" />
     <MESSAGE value="bower update" />
     <MESSAGE value="edge with float precision, edge font size" />
-    <option name="LAST_COMMIT_MESSAGE" value="edge with float precision, edge font size" />
+    <MESSAGE value="suggest node names when want to search" />
+    <option name="LAST_COMMIT_MESSAGE" value="suggest node names when want to search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1430,24 +1451,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/bower_components/angular/angular.js" />
-    <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/graphTable.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/searchTechsSecond.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1589,24 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/orientDBRequests/queryNodeTitles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc;n#getNodesTitles#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/graphData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/graphExplore.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1623,6 +1612,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/searchTechsSecond.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/views/partials/searchBar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1631,10 +1628,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/graphData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/orientDBRequests/queryNodeTitles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc;n#getNodesTitles#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="157">
+          <caret line="76" column="1" lean-forward="false" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/views/pages/graph/searchTechsFirst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
           <folding />
         </state>
       </provider>
