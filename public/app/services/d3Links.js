@@ -11,12 +11,10 @@ angular.module('d3Services', [])
                 return {
                     'source' :  link.term_id1 ||  link["out"].replace(/#|:/g, '')  ,
                     'target' :  link.term_id2 ||  link["in"].replace(/#|:/g, '') ,
-                    'value' : Number(link["weighted_similarity"]) || link["weight"]
+                    'value' : (Number(link["weighted_similarity"]) || link["weight"]).toFixed(3)
                 };
             });
-
         };
-
         d3Link.filterLinkByTh = function (linkData, filterThreshHold) {
             filterThreshHold = typeof filterThreshHold !== 'undefined' ? filterThreshHold : 0.2;
             return linkData.filter(function (link) {
@@ -36,9 +34,7 @@ angular.module('d3Services', [])
                 return checkLink;
             });
         };
-
         d3Link.createLinkDoubleCLick = function (linkData) {
-
             return linkData.map(function (link) {
                 return {
                     'source' :    link.source["id"]  ,
@@ -46,6 +42,5 @@ angular.module('d3Services', [])
                     'value' :  link["value"]
                 };
             });
-
         };
     });

@@ -124,7 +124,9 @@ angular.module('techDirectives', [])
                     .style("stroke-width", function(d) {
                         return   d.value * 3.5  ;
                     })
-                    .attr("marker-end", "url(#end)");
+                    .attr("marker-end", "url(#end)")
+
+                ;
 
 
 
@@ -157,7 +159,7 @@ angular.module('techDirectives', [])
 
                             return '21px';
                         }
-                    })
+                    });
 
 
                 d3.selectAll(".tech")
@@ -184,7 +186,7 @@ angular.module('techDirectives', [])
                 node.append("text")
                     .attr("dx", 27)
                     .attr("dy", ".25em")
-                    .style("font-size", 21+"px")
+                    .style("font-size", 20+"px")
                     .text(function(d) { return d.title });
 
 
@@ -215,7 +217,7 @@ angular.module('techDirectives', [])
                     toolTip.transition()
                         .style('display', 'none');
 
-                })
+                });
 
 
 
@@ -267,14 +269,15 @@ angular.module('techDirectives', [])
                         node.style("opacity", 1);
                         link.style("opacity", 1);
                         linkText.style("opacity", 1);
-                        d3.selectAll("circle")
+                        d3.select(this).select("circle")
                             .transition("200")
                             .attr("r", 10)
                         ;
-                        d3.selectAll("text")
+                        d3.select(this).selectAll("text")
                             .transition("200")
-                            .style("font-size", 21+"px")
+                            .style("font-size", 20+"px")
                         ;
+
                         toggle = 0;
                     }
                 }
@@ -289,7 +292,7 @@ angular.module('techDirectives', [])
                     .classed("displayWeight", true)
                     .attr("font-family", "Arial, Helvetica, sans-serif")
                     .attr("fill", "Black")
-                    .style("font", "normal 12px Arial")
+                    .style("font", "normal 14px Arial")
                     .attr("dy", ".35em")
                     .text(function (d) {
                         return d.value;
