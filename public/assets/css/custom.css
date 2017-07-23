@@ -92,6 +92,9 @@ header .navbar {
     border-radius: 0 4px 4px 0 !important;
 
 }
+.techNames {
+    list-style: none !important;
+}
 .searchDropDown {
     background-color: #eee;
     border-bottom-left-radius: 3px;

@@ -1,47 +1,63 @@
 
 <div class="col-md-12 marginTop10 searchTechFirst" ng-controller="searchTechController">
     <div class="col-xs-12">
-    <h3 class="textAlignRight pageHeader pageHeaderSearch"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی تکنولوژی ها</h3>
+        <h3 class="textAlignRight pageHeader pageHeaderSearch"><i class="fa fa-search" aria-hidden="true"></i> جست و جوی فناوری ها</h3>
     </div>
 
     <form name="searchTechsForm">
-    <fieldset class="searchTech col-xs-10 col-xs-offset-1">
-        <h2>نام های تکنولوژی
+        <fieldset class="searchTech col-xs-10 col-xs-offset-1">
+            <h2>نام های فناوری
 
-        </h2>
-        <hr>
-        <div class="input-list style-1 col-xs-12 col-md-12">
+            </h2>
+            <hr>
+            <div class="row">
+                <div class="  col-xs-12 col-sm-6 floatRight">
+                    <li class="col-xs-12 listStyle floatRight marginTop30"  >
+                        <label class="labelInline floatRight textAlignRight" for="1">پیدا کردن فناوری ها بر اساس حروف الفبا :</label>
+                        <select ng-model="alphabet" class="form-inline" ng-change="techWithAlphabet(alphabet)">
+                            <option ng-repeat="alphabet in alphabetArray">{{alphabet}}</option>
+                        </select>
 
-            <div class="col-md-12" >
-                اضافه یا کم کردن تکنولوژی
-                <button class="btn btn-success " ng-click="addField()">+</button>
-                <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
+                    </li>
+                </div>
+                <div class="  col-xs-12 col-sm-6">
+                    <h4 class="text-center techNames"> {{alphabetPicked}}  نام ها فناوری با حرف اول </h4>
+                    <li ng-repeat="tech in alphabetTechs" style="text-align: left" class="col-sm-6 marginTop10">{{tech.tech_title}}</li>
+                </div>
             </div>
+            <hr>
+            <div class="input-list style-1 col-xs-12 col-md-12 marginTop30">
+
+                <div class="col-md-12" >
+                    اضافه یا کم کردن فناوری
+                    <button class="btn btn-success " ng-click="addField()">+</button>
+                    <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
+                </div>
                 <li class="col-xs-6 listStyle floatRight marginTop30"  ng-repeat="item in inputs">
-                    <label class="labelInline floatRight textAlignRight" for="1">نام تکنولوژی:</label>
+                    <label class="labelInline floatRight textAlignRight" for="1">نام فناوری:</label>
                     <input id="1" type="text" ng-model="itemValue[$index]" required>
 
                 </li>
 
 
-        </div>
-        <div class="input-list style-1 col-xs-12 col-md-12 marginTop10">
-            <h2 style="margin-bottom: 0">تنظیمات</h2>
-            <hr>
+            </div>
+            <div class="input-list style-1 col-xs-12 col-md-12 marginTop10">
+                <h2 style="margin-bottom: 0">تنظیمات</h2>
+                <hr>
 
-            <div class="col-xs-6 floatRight marginTop30">
-                <label for="threshHold" class="textAlignRight floatRight">حداقل وزن یال:</label>
-                <input id="threshHold" type="text" ng-model="threshHold" required>
+                <div class="col-xs-6 floatRight marginTop30">
+                    <label for="threshHold" class="textAlignRight floatRight">حداقل وزن یال:</label>
+                    <input id="threshHold" type="text" ng-model="threshHold" required>
+                </div>
+                <div class="col-xs-6 floatRight marginTop30">
+                    <label   for="traverseDepth" class="textAlignRight floatRight">عمق پیمایش:</label>
+                    <input id="traverseDepth" type="text" ng-model="traverseDepth" required>
+                </div>
             </div>
-            <div class="col-xs-6 floatRight marginTop30">
-                <label   for="traverseDepth" class="textAlignRight floatRight">عمق پیمایش:</label>
-                <input id="traverseDepth" type="text" ng-model="traverseDepth" required>
+            <div class="col-md-12 marginTop50">
+                <button ng-disabled="searchTechsForm.$invalid" class="btn btn-success btn-lg marginTop10" ng-click="searchGraph('/searchTechsSecondPage')">جست و جوی گراف <i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
-        </div>
-        <div class="col-md-12 marginTop50">
-            <button ng-disabled="searchTechsForm.$invalid" class="btn btn-success btn-lg marginTop10" ng-click="searchGraph('/searchTechsSecondPage')">جست و جوی گراف <i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-    </fieldset>
+        </fieldset>
     </form>
 
 </div>

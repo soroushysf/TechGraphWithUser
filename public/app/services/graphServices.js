@@ -26,7 +26,7 @@ angular.module('graphServices', [])
     graphDataRequest.getNodeNames = function (inputString) {
         var bodyJson = {
             input : inputString
-        }
+        };
       return $http.post('/graph/node-names', bodyJson);
     };
     graphDataRequest.setGraphData = function (nodes,associations) {

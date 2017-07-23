@@ -20,7 +20,20 @@ angular.module('graphController')
             // $scope.itemValue.splice( -1,1);
         }
     };
-
+    $scope.alphabetPicked = '';
+    $scope.alphabetTechs = [];
+    $scope.techWithAlphabet = function (alphabet) {
+      console.log(alphabet);
+      $scope.alphabetPicked = alphabet;
+        graphData.getNodeNames(alphabet)
+            .then(function (data) {
+                console.log(data);
+                $scope.alphabetTechs = data.data.data.result;
+            })
+            .catch(function (data) {
+                console.log(data);
+            })
+    };
     $scope.searchGraph = function (view) {
         graphData.setThreshHold($scope.threshHold);
 
@@ -48,5 +61,5 @@ angular.module('graphController')
             });
     };
 
-
+    $scope.alphabetArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 });
