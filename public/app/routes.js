@@ -7,9 +7,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
         });
 
         $routeProvider
-            .when('/', {
-                templateUrl: "app/views/pages/home.html"
-            })
+
             .when('/about', {
                 templateUrl: "app/views/pages/about.html"
             })
@@ -17,7 +15,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: "app/views/pages/users/register.html",
                 authenticated: false
             })
-            .when('/login', {
+            .when('/', {
                 templateUrl: "app/views/pages/users/login.html",
                 authenticated: false
             })

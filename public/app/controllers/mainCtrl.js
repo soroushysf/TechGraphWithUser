@@ -49,7 +49,7 @@ angular.module('mainController', ['authServices'])
             if(Auth.isLoggedIn()) {
                 Auth.getUser()
                     .then(function (data) {
-                        // main.username = data.data.decoded.username;
+                        main.username = data.data.decoded.username;
                         userGraphs.setData(data.data.userGraphs);
                         main.generateUserGraphs();
                         main.loadme = true;
@@ -100,7 +100,7 @@ angular.module('mainController', ['authServices'])
 
         main.isActive = function (viewLocation) {
             return viewLocation === $location.path();
-        }
+        };
 
 
         //send searched techs to searched techs view controller
@@ -121,7 +121,7 @@ angular.module('mainController', ['authServices'])
                 $('#physics').html('Off')
             }
             $scope.$broadcast("forceStop");
-        }
+        };
         $scope.currentPage = 1;
 
     });

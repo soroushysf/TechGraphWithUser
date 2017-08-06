@@ -95,6 +95,32 @@ header .navbar {
 .techNames {
     list-style: none !important;
 }
+.techPickList {
+    background-color: #eee;
+    border-radius: 3px;
+    text-align: center;
+    width: 40%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 5px 10px;
+}
+.techPickList:hover {
+    cursor: pointer;
+    background-color: rgb(252,213,49);
+}
+.searchKeyUpList:hover {
+    background-color: #999;
+    cursor: pointer;
+}
+a.navbar-brand {
+    font-size: 14px;
+}
+.navbar-nav>li>a {
+    font-size: 14px;
+}
+.navbarBrandLogo {
+    padding-top: 3px;
+}
 .searchDropDown {
     background-color: #eee;
     border-bottom-left-radius: 3px;

@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="  col-xs-12 col-sm-6 floatRight">
                     <li class="col-xs-12 listStyle floatRight marginTop30"  >
-                        <label class="labelInline floatRight textAlignRight" for="1">پیدا کردن فناوری ها بر اساس حروف الفبا :</label>
+                        <label class="labelInline floatRight textAlignRight">پیدا کردن فناوری ها بر اساس حروف الفبا :</label>
                         <select ng-model="alphabet" class="form-inline" ng-change="techWithAlphabet(alphabet)">
                             <option ng-repeat="alphabet in alphabetArray">{{alphabet}}</option>
                         </select>
@@ -22,21 +22,19 @@
                 </div>
                 <div class="  col-xs-12 col-sm-6">
                     <h4 class="text-center techNames"> {{alphabetPicked}}  نام ها فناوری با حرف اول </h4>
-                    <li ng-repeat="tech in alphabetTechs" style="text-align: left" class="col-sm-6 marginTop10">{{tech.tech_title}}</li>
+                    <li ng-click="pickTech(tech)" ng-repeat="tech in alphabetTechs" style="list-style: none" class="col-sm-6 marginTop10 techPickList">{{tech.tech_title}}</li>
                 </div>
             </div>
-            <hr>
-            <div class="input-list style-1 col-xs-12 col-md-12 marginTop30">
+            <div ng-show="inputs.length > 0" class="input-list style-1 col-xs-12 col-md-12 marginTop30">
+                <hr>
 
                 <div class="col-md-12" >
-                    اضافه یا کم کردن فناوری
-                    <button class="btn btn-success " ng-click="addField()">+</button>
+                      پاک کردن فناوری
                     <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
                 </div>
                 <li class="col-xs-6 listStyle floatRight marginTop30"  ng-repeat="item in inputs">
-                    <label class="labelInline floatRight textAlignRight" for="1">نام فناوری:</label>
-                    <input id="1" type="text" ng-model="itemValue[$index]" required>
-
+                    <label class="labelInline floatRight textAlignRight">نام فناوری:</label>
+                    <label>{{item.tech_title}}</label>
                 </li>
 
 

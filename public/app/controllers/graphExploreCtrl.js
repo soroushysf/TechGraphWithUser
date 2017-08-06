@@ -12,6 +12,7 @@ angular.module('graphController', [])
         graphExplore.threshHoldSpinner = false;
         $scope.searchBarSpinner = false;
         $scope.searchedNodeTitle = '';
+        $scope.field = {queryInput : ''};
 
 
         $scope.minimumThreshHold = graphData.getThreshHold();
@@ -41,6 +42,9 @@ angular.module('graphController', [])
 
                 });
         }
+        $scope.setSearchBar = function (nodePicked) {
+          $scope.field.queryInput = nodePicked.tech_title;
+        };
         $scope.nodeNamesSearched= [];
         graphExplore.getNodeNamesKeyDown = function (inputString) {
             graphData.getNodeNames(inputString)
@@ -75,7 +79,7 @@ angular.module('graphController', [])
                 $scope.nodes = data.nodes;
                 $scope.links = data.links;
             }
-        }
+        };
         // declared in graph directive (graphData => 0: titles, 1: nodes, 2: links)
         $scope.$on("nodeDoubleClick",function (event ,data) {
             $scope.nodeClickedTitle = data[0];
