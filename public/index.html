@@ -75,23 +75,23 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand navbarBrandLogo" href="/">
-                <img href="/" src="assets/img/Tech-mining-Logo-HQ2.png" alt=""/>
+                <img style="padding-top: 4px" href="/" src="assets/img/Tech-mining-Logo-HQ2.png" alt=""/>
             </a>
-            <a class="navbar-brand" href="/">درباره ما</a>
-            <a class="navbar-brand" href="/">فن کاوی چیست <i class="fa fa-question"></i></a>
+            <a class="navbar-brand" href="/">درباره ما <img style="display: inline" src="assets/img/icon_about%20(1).png" alt=""></a>
+            <a class="navbar-brand" href="/">فن کاوی چیست  <img style="display: inline" src="assets/img/icon_whatisTM%20(1).png" alt=""></a>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav textAlignRight floatRight">
-                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/profile'), backgroundMenu : main.isActive('/profile')}" href="/profile"><i class="fa iconBiggerSize fa-home"></i> {{main.username}} </a></li>
-                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/graphExplore'), backgroundMenu : main.isActive('/graphExplore')}" href="/graphExplore"><i class="fa iconBiggerSize fa-share-alt"></i> جست و جو در گراف</a></li>
-                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/graphTable'), backgroundMenu : main.isActive('/graphTable')}" href="/graphTable"><i class="fa iconBiggerSize fa-list"></i> اطلاعات لیستی گراف</a></li>
-                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/searchTechsFirstPage'), backgroundMenu : main.isActive('/searchTechsFirstPage')}" href="/searchTechsFirstPage"><i class="fa iconBiggerSize fa-search"></i> جست و جوی فناوری ها</a></li>
+                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/profile'), backgroundMenu : main.isActive('/profile')}" href="/profile"><img src="assets/img/icon-home%20(2).png" alt=""> {{main.username}} </a></li>
+                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/graphExplore'), backgroundMenu : main.isActive('/graphExplore')}" href="/graphExplore"><img src="assets/img/icon_graphsearch.png" alt=""> جست و جو در گراف</a></li>
+                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/graphTable'), backgroundMenu : main.isActive('/graphTable')}" href="/graphTable"><img src="assets/img/icon_listview%20(2).png" alt=""> اطلاعات لیستی گراف</a></li>
+                <li ng-show="main.logoutMenu" class="floatRight" ><a ng-class="{ active: main.isActive('/searchTechsFirstPage'), backgroundMenu : main.isActive('/searchTechsFirstPage')}" href="/searchTechsFirstPage"><img src="assets/img/icon-graph_search%20(1).png" alt=""> جست و جوی فناوری ها</a></li>
 
 
-                <li class="floatRight" ng-class="{ active: main.isActive('/login')}" ng-hide="main.logoutMenu"><a href="/login"><i class="fa fa-sign-in"></i> ورود  </a></li>
-                <li class="floatRight" ng-class="{ active: main.isActive('/register')}" ng-hide="main.logoutMenu"><a href="/register"><i class="fa fa-sign-in"></i> ثبت نام</a></li>
-                <li class="floatRight" ng-show="main.logoutMenu"><a ng-click="main.logout()"><i class="fa iconBiggerSize fa-sign-out"></i> خروج</a></li>
+                <li class="floatRight" ><a ng-class="{ active: main.isActive('/'), backgroundMenu : main.isActive('/')}" ng-hide="main.logoutMenu" href="/login"><img src="assets/img/icon-login.png" alt=""> ورود  </a></li>
+                <li class="floatRight"><a ng-class="{ active: main.isActive('/register'), backgroundMenu : main.isActive('/register')}" ng-hide="main.logoutMenu" href="/register"><img src="assets/img/icon-signup.png" alt=""> ثبت نام</a></li>
+                <li class="floatRight" ng-show="main.logoutMenu"><a ng-click="main.logout()"><img src="assets/img/icon-logout%20(1).png" alt="">    خروج</a></li>
 
 
             </ul>
@@ -103,7 +103,7 @@
 
 
 
-<div ng-view></div>
+    <div ng-view></div>
 
 </div> <!-- /container -->
 
