@@ -5,37 +5,41 @@
     </div>
 
     <form name="searchTechsForm">
-        <fieldset class="searchTech col-xs-10 col-xs-offset-1">
+        <fieldset class="searchTech col-xs-12">
             <h2>نام های فناوری
 
             </h2>
             <hr>
             <div class="row">
-                <div class="  col-xs-12 col-sm-6 floatRight">
+                <div class="  col-xs-12 col-sm-2 floatRight">
+                    <h4 class="text-center techNames" >   انتخاب حروف الفبا </h4>
                     <li class="col-xs-12 listStyle floatRight marginTop30"  >
-                        <label class="labelInline floatRight textAlignRight">پیدا کردن فناوری ها بر اساس حروف الفبا :</label>
-                        <select ng-model="alphabet" class="form-inline" ng-change="techWithAlphabet(alphabet)">
+                        <select ng-model="alphabet" class="form-inline floatRight selectStyle" ng-change="techWithAlphabet(alphabet)">
                             <option ng-repeat="alphabet in alphabetArray">{{alphabet}}</option>
                         </select>
 
                     </li>
                 </div>
-                <div class="  col-xs-12 col-sm-6">
-                    <h4 class="text-center techNames"> {{alphabetPicked}}  نام ها فناوری با حرف اول </h4>
-                    <li ng-click="pickTech(tech)" ng-repeat="tech in alphabetTechs" style="list-style: none" class="col-sm-6 marginTop10 techPickList">{{tech.tech_title}}</li>
+                <div class="  col-xs-12 col-sm-5 floatRight ">
+                    <h4 class="text-center techNames" ng-show="alphabetTechs.length>0"> {{alphabetPicked}}  نام ها فناوری با حرف اول </h4>
+                    <div class="techBoxes col-xs-12"  ng-show="alphabetTechs.length>0">
+                        <li ng-click="pickTech(tech)" ng-repeat="tech in alphabetTechs" style="list-style: none" class="col-xs-12 marginTop10 techPickList"><i class="fa fa-plus circle success floatLeft"></i> {{tech.tech_title}}</li>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 floatRight ">
+                    <h4 class="text-center techNames" ng-show="inputs.length>0">   تکنولوژی های انتخاب شده </h4>
+                    <div class="techBoxes col-xs-12" ng-show="inputs.length>0">
+                        <li class="col-xs-12 listStyle techPickListChosen floatRight "  ng-repeat="item in inputs">
+                            <button  class="btn btn-danger floatLeft" href="#/second" ng-click="deleteField(item)">-</button>
+                            <label>{{item.tech_title}}</label>
+                        </li>
+                    </div>
                 </div>
             </div>
             <div ng-show="inputs.length > 0" class="input-list style-1 col-xs-12 col-md-12 marginTop30">
                 <hr>
 
-                <div class="col-md-12" >
-                      پاک کردن فناوری
-                    <button  class="btn btn-danger " href="#/second" ng-click="deleteField()">-</button>
-                </div>
-                <li class="col-xs-6 listStyle floatRight marginTop30"  ng-repeat="item in inputs">
-                    <label class="labelInline floatRight textAlignRight">نام فناوری:</label>
-                    <label>{{item.tech_title}}</label>
-                </li>
+
 
 
             </div>

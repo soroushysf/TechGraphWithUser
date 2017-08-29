@@ -95,18 +95,34 @@ header .navbar {
 .techNames {
     list-style: none !important;
 }
+.floatLeft {
+    float: left;
+}
 .techPickList {
     background-color: #eee;
     border-radius: 3px;
     text-align: center;
-    width: 40%;
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 5px 10px;
 }
 .techPickList:hover {
     cursor: pointer;
-    background-color: rgb(252,213,49);
+    background-color: #28a745;
+}
+.success {
+    background-color: #28a745;
+}
+.circle {
+    padding: 5px;
+    border-radius: 50%;
+}
+.techPickListChosen {
+    background-color: #eee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin:10px 5px;
 }
 .searchKeyUpList:hover {
     background-color: #999;
@@ -185,6 +201,18 @@ fieldset #weightBtn {
 fieldset h2 {
     color: #496387;
     margin: 10px auto 40px auto;
+}
+.selectStyle {
+    height: 50px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+.techBoxes {
+    background-color: #fff;
+    border-radius: 3px;
+    height: 100%;
+    display: block;
 }
 .listStyle {
     margin-top: 5px;
